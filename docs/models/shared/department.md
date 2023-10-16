@@ -1,0 +1,16 @@
+# Department
+
+
+## Fields
+
+| Field                                               | Type                                                | Required                                            | Description                                         | Example                                             |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| `Code`                                              | **string*                                           | :heavy_minus_sign:                                  | N/A                                                 | 2                                                   |
+| `CreatedAt`                                         | [*time.Time](https://pkg.go.dev/time#Time)          | :heavy_minus_sign:                                  | The date and time when the object was created.      | 2020-09-30T07:43:32.000Z                            |
+| `CreatedBy`                                         | **string*                                           | :heavy_minus_sign:                                  | The user who created the object.                    | 12345                                               |
+| `Description`                                       | **string*                                           | :heavy_minus_sign:                                  | N/A                                                 | R&D                                                 |
+| `ID`                                                | **string*                                           | :heavy_minus_sign:                                  | A unique identifier for an object.                  | 12345                                               |
+| `Name`                                              | **string*                                           | :heavy_minus_sign:                                  | Department name                                     | R&D                                                 |
+| `ParentID`                                          | **string*                                           | :heavy_minus_sign:                                  | Parent ID                                           | 22345                                               |
+| `UpdatedAt`                                         | [*time.Time](https://pkg.go.dev/time#Time)          | :heavy_minus_sign:                                  | The date and time when the object was last updated. | 2020-09-30T07:43:32.000Z                            |
+| `UpdatedBy`                                         | **string*                                           | :heavy_minus_sign:                                  | The user who last updated the object.               | 12345                                               |

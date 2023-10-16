@@ -1,4 +1,9 @@
 configVersion: 1.0.0
+management:
+  docChecksum: df4a4bd095a457f65fa96e9ac6b485ce
+  docVersion: 9.9.2
+  speakeasyVersion: 1.99.2
+  generationVersion: 2.155.1
 generation:
   comments:
     disableComments: false
@@ -7,8 +12,22 @@ generation:
   sdkClassName: ATS-API
   singleTagPerOp: false
   tagNamespacingDisabled: false
+features:
+  go:
+    additionalProperties: 0.1.1
+    constsAndDefaults: 0.1.1
+    core: 2.91.5
+    deprecations: 2.81.1
+    globalSecurity: 2.82.2
+    globalServerURLs: 2.82.0
+    groups: 2.81.2
+    inputOutputModels: 2.81.1
+    methodSecurity: 2.82.1
+    nameOverrides: 2.81.1
+    unions: 2.83.1
 go:
-  version: 0.0.1
+  version: 0.1.0
   clientServerStatusCodesAsErrors: true
+  flattenGlobalSecurity: true
   maxMethodParams: 0
   packageName: github.com/speakeasy-sdks/apideck-sample-sdk

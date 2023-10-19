@@ -3,7 +3,7 @@
 package shared
 
 import (
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/utils"
+	"github.com/speakeasy-sdks/apideck-go/pkg/utils"
 	"time"
 )
 

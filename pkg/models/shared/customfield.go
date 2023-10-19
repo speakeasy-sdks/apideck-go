@@ -4,7 +4,7 @@ package shared
 
 import (
 	"errors"
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/utils"
+	"github.com/speakeasy-sdks/apideck-go/pkg/utils"
 )
 
 type CustomFieldValue4 struct {

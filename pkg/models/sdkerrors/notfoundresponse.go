@@ -5,7 +5,7 @@ package sdkerrors
 import (
 	"encoding/json"
 	"errors"
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/utils"
+	"github.com/speakeasy-sdks/apideck-go/pkg/utils"
 )
 
 // NotFoundResponseDetail2 - Contains parameter or domain specific information related to the error and why it occurred.

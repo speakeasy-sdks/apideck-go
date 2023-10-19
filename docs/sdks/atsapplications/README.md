@@ -21,13 +21,13 @@ package main
 import(
 	"context"
 	"log"
-	apidecksamplesdk "github.com/speakeasy-sdks/apideck-sample-sdk"
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/models/shared"
+	apideckgo "github.com/speakeasy-sdks/apideck-go"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
 )
 
 func main() {
-    s := apidecksamplesdk.New()
+    s := apideckgo.New()
 
 
     operationSecurity := "<your-apideck-api-key>"
@@ -38,8 +38,8 @@ func main() {
             ApplicantID: "12345",
             JobID: "12345",
             Stage: &shared.ApplicationStage{
-                ID: apidecksamplesdk.String("12345"),
-                Name: apidecksamplesdk.String("12345"),
+                ID: apideckgo.String("12345"),
+                Name: apideckgo.String("12345"),
             },
             Status: shared.ApplicationStatusOpen.ToPointer(),
         },
@@ -82,13 +82,13 @@ package main
 import(
 	"context"
 	"log"
-	apidecksamplesdk "github.com/speakeasy-sdks/apideck-sample-sdk"
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/models/shared"
+	apideckgo "github.com/speakeasy-sdks/apideck-go"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
 )
 
 func main() {
-    s := apidecksamplesdk.New()
+    s := apideckgo.New()
 
 
     operationSecurity := "<your-apideck-api-key>"
@@ -139,12 +139,12 @@ package main
 import(
 	"context"
 	"log"
-	apidecksamplesdk "github.com/speakeasy-sdks/apideck-sample-sdk"
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/models/operations"
+	apideckgo "github.com/speakeasy-sdks/apideck-go"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 )
 
 func main() {
-    s := apidecksamplesdk.New()
+    s := apideckgo.New()
 
 
     operationSecurity := "<your-apideck-api-key>"
@@ -191,12 +191,12 @@ package main
 import(
 	"context"
 	"log"
-	apidecksamplesdk "github.com/speakeasy-sdks/apideck-sample-sdk"
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/models/operations"
+	apideckgo "github.com/speakeasy-sdks/apideck-go"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 )
 
 func main() {
-    s := apidecksamplesdk.New()
+    s := apideckgo.New()
 
 
     operationSecurity := "<your-apideck-api-key>"
@@ -243,13 +243,13 @@ package main
 import(
 	"context"
 	"log"
-	apidecksamplesdk "github.com/speakeasy-sdks/apideck-sample-sdk"
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/models/shared"
+	apideckgo "github.com/speakeasy-sdks/apideck-go"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
 )
 
 func main() {
-    s := apidecksamplesdk.New()
+    s := apideckgo.New()
 
 
     operationSecurity := "<your-apideck-api-key>"
@@ -260,8 +260,8 @@ func main() {
             ApplicantID: "12345",
             JobID: "12345",
             Stage: &shared.ApplicationStage{
-                ID: apidecksamplesdk.String("12345"),
-                Name: apidecksamplesdk.String("12345"),
+                ID: apideckgo.String("12345"),
+                Name: apideckgo.String("12345"),
             },
             Status: shared.ApplicationStatusOpen.ToPointer(),
         },

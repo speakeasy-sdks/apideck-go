@@ -1,4 +1,4 @@
-module github.com/speakeasy-sdks/apideck-sample-sdk
+module github.com/speakeasy-sdks/apideck-go
 
 go 1.14
 

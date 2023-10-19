@@ -12,7 +12,7 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/types"
+	"github.com/speakeasy-sdks/apideck-go/pkg/types"
 
 	"github.com/ericlagergren/decimal"
 )

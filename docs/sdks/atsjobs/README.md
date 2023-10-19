@@ -18,13 +18,13 @@ package main
 import(
 	"context"
 	"log"
-	apidecksamplesdk "github.com/speakeasy-sdks/apideck-sample-sdk"
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/models/operations"
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/models/shared"
+	apideckgo "github.com/speakeasy-sdks/apideck-go"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
 )
 
 func main() {
-    s := apidecksamplesdk.New()
+    s := apideckgo.New()
 
 
     operationSecurity := "<your-apideck-api-key>"
@@ -75,12 +75,12 @@ package main
 import(
 	"context"
 	"log"
-	apidecksamplesdk "github.com/speakeasy-sdks/apideck-sample-sdk"
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/models/operations"
+	apideckgo "github.com/speakeasy-sdks/apideck-go"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 )
 
 func main() {
-    s := apidecksamplesdk.New()
+    s := apideckgo.New()
 
 
     operationSecurity := "<your-apideck-api-key>"

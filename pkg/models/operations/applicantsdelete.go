@@ -3,8 +3,8 @@
 package operations
 
 import (
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/models/shared"
-	"github.com/speakeasy-sdks/apideck-sample-sdk/pkg/utils"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
+	"github.com/speakeasy-sdks/apideck-go/pkg/utils"
 	"net/http"
 )
 

@@ -2936,6 +2936,7 @@ components:
       type: apiKey
       in: header
       name: Authorization
+      x-speakeasy-example: "<your-apideck-api-key>"
       description: |
         To use API you have to sign up and get your own API key. Unify API accounts have sandbox mode and live mode API keys. 
         To change modes just use the appropriate key to get a live or test object. You can find your API keys on the unify settings of your Apideck app.

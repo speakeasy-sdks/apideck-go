@@ -7,7 +7,7 @@
 </div>
 
 <!-- Start SDK Installation -->
-# SDK Installation
+## SDK Installation
 
 ```bash
 go get github.com/speakeasy-sdks/apideck-sample-sdk
@@ -16,8 +16,6 @@ go get github.com/speakeasy-sdks/apideck-sample-sdk
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```go
 package main
 
@@ -162,11 +160,11 @@ func main() {
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-# Available Resources and Operations
+## Available Resources and Operations
 
 
 
-## [Ats.Applicants](docs/sdks/atsapplicants/README.md)
+### [Ats.Applicants](docs/sdks/atsapplicants/README.md)
 
 * [Add](docs/sdks/atsapplicants/README.md#add) - Create Applicant
 * [All](docs/sdks/atsapplicants/README.md#all) - List Applicants
@@ -174,7 +172,7 @@ func main() {
 * [One](docs/sdks/atsapplicants/README.md#one) - Get Applicant
 * [Update](docs/sdks/atsapplicants/README.md#update) - Update Applicant
 
-## [Ats.Applications](docs/sdks/atsapplications/README.md)
+### [Ats.Applications](docs/sdks/atsapplications/README.md)
 
 * [Add](docs/sdks/atsapplications/README.md#add) - Create Application
 * [All](docs/sdks/atsapplications/README.md#all) - List Applications
@@ -182,15 +180,13 @@ func main() {
 * [One](docs/sdks/atsapplications/README.md#one) - Get Application
 * [Update](docs/sdks/atsapplications/README.md#update) - Update Application
 
-## [Ats.Jobs](docs/sdks/atsjobs/README.md)
+### [Ats.Jobs](docs/sdks/atsjobs/README.md)
 
 * [All](docs/sdks/atsjobs/README.md#all) - List Jobs
 * [One](docs/sdks/atsjobs/README.md#one) - Get Job
 <!-- End SDK Available Operations -->
 
 <!-- Start Dev Containers -->
-
-
 
 <!-- End Dev Containers -->
 

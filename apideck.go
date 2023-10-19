@@ -61,7 +61,7 @@ func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
 	return ServerList[c.ServerIndex], nil
 }
 
-// AtsAPI - ATS API: Welcome to the ATS API.
+// Apideck - ATS API: Welcome to the ATS API.
 //
 // You can use this API to access all ATS API endpoints.
 //
@@ -321,24 +321,24 @@ func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
 // If you have problems or need help with your case, you can always reach out to our Support.
 //
 // https://developers.apideck.com - Apideck Developer Docs
-type AtsAPI struct {
+type Apideck struct {
 	Ats *ats
 
 	sdkConfiguration sdkConfiguration
 }
 
-type SDKOption func(*AtsAPI)
+type SDKOption func(*Apideck)
 
 // WithServerURL allows the overriding of the default server URL
 func WithServerURL(serverURL string) SDKOption {
-	return func(sdk *AtsAPI) {
+	return func(sdk *Apideck) {
 		sdk.sdkConfiguration.ServerURL = serverURL
 	}
 }
 
 // WithTemplatedServerURL allows the overriding of the default server URL with a templated URL populated with the provided parameters
 func WithTemplatedServerURL(serverURL string, params map[string]string) SDKOption {
-	return func(sdk *AtsAPI) {
+	return func(sdk *Apideck) {
 		if params != nil {
 			serverURL = utils.ReplaceParameters(serverURL, params)
 		}
@@ -349,7 +349,7 @@ func WithTemplatedServerURL(serverURL string, params map[string]string) SDKOptio
 
 // WithServerIndex allows the overriding of the default server by index
 func WithServerIndex(serverIndex int) SDKOption {
-	return func(sdk *AtsAPI) {
+	return func(sdk *Apideck) {
 		if serverIndex < 0 || serverIndex >= len(ServerList) {
 			panic(fmt.Errorf("server index %d out of range", serverIndex))
 		}
@@ -360,7 +360,7 @@ func WithServerIndex(serverIndex int) SDKOption {
 
 // WithClient allows the overriding of the default HTTP client used by the SDK
 func WithClient(client HTTPClient) SDKOption {
-	return func(sdk *AtsAPI) {
+	return func(sdk *Apideck) {
 		sdk.sdkConfiguration.DefaultClient = client
 	}
 }
@@ -374,27 +374,27 @@ func withSecurity(security interface{}) func(context.Context) (interface{}, erro
 // WithSecurity configures the SDK to use the provided security details
 
 func WithSecurity(apiKey string) SDKOption {
-	return func(sdk *AtsAPI) {
+	return func(sdk *Apideck) {
 		security := shared.Security{APIKey: apiKey}
 		sdk.sdkConfiguration.Security = withSecurity(&security)
 	}
 }
 
 func WithRetryConfig(retryConfig utils.RetryConfig) SDKOption {
-	return func(sdk *AtsAPI) {
+	return func(sdk *Apideck) {
 		sdk.sdkConfiguration.RetryConfig = &retryConfig
 	}
 }
 
 // New creates a new instance of the SDK with the provided options
-func New(opts ...SDKOption) *AtsAPI {
-	sdk := &AtsAPI{
+func New(opts ...SDKOption) *Apideck {
+	sdk := &Apideck{
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "9.9.2",
-			SDKVersion:        "0.1.0",
+			SDKVersion:        "0.2.0",
 			GenVersion:        "2.161.0",
-			UserAgent:         "speakeasy-sdk/go 0.1.0 2.161.0 9.9.2 github.com/speakeasy-sdks/apideck-sample-sdk",
+			UserAgent:         "speakeasy-sdk/go 0.2.0 2.161.0 9.9.2 github.com/speakeasy-sdks/apideck-sample-sdk",
 		},
 	}
 	for _, opt := range opts {

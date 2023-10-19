@@ -2,7 +2,7 @@ atsapplicants.go
 atsapplications.go
 atsjobs.go
 ats.go
-atsapi.go
+apideck.go
 go.mod
 go.sum
 pkg/models/sdkerrors/sdkerror.go
@@ -166,7 +166,7 @@ docs/models/errors/notfoundresponsedetail2.md
 docs/models/errors/notfoundresponsedetail.md
 docs/models/errors/notfoundresponse.md
 docs/models/errors/unprocessableresponse.md
-docs/sdks/atsapi/README.md
+docs/sdks/apideck/README.md
 docs/sdks/ats/README.md
 docs/sdks/atsapplicants/README.md
 docs/sdks/atsapplications/README.md

@@ -27,7 +27,7 @@ func main() {
     s := apidecksamplesdk.New()
 
 
-    operationSecurity := ""
+    operationSecurity := "<your-apideck-api-key>"
 
     ctx := context.Background()
     res, err := s.Ats.Jobs.All(ctx, operations.JobsAllRequest{
@@ -83,7 +83,7 @@ func main() {
     s := apidecksamplesdk.New()
 
 
-    operationSecurity := ""
+    operationSecurity := "<your-apideck-api-key>"
 
     ctx := context.Background()
     res, err := s.Ats.Jobs.One(ctx, operations.JobsOneRequest{

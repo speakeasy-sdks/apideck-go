@@ -31,7 +31,7 @@ import (
 func main() {
 	s := apidecksamplesdk.New()
 
-	operationSecurity := ""
+	operationSecurity := "<your-apideck-api-key>"
 
 	ctx := context.Background()
 	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{

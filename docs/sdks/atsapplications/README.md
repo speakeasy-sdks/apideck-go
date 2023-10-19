@@ -30,7 +30,7 @@ func main() {
     s := apidecksamplesdk.New()
 
 
-    operationSecurity := ""
+    operationSecurity := "<your-apideck-api-key>"
 
     ctx := context.Background()
     res, err := s.Ats.Applications.Add(ctx, operations.ApplicationsAddRequest{
@@ -91,7 +91,7 @@ func main() {
     s := apidecksamplesdk.New()
 
 
-    operationSecurity := ""
+    operationSecurity := "<your-apideck-api-key>"
 
     ctx := context.Background()
     res, err := s.Ats.Applications.All(ctx, operations.ApplicationsAllRequest{
@@ -147,7 +147,7 @@ func main() {
     s := apidecksamplesdk.New()
 
 
-    operationSecurity := ""
+    operationSecurity := "<your-apideck-api-key>"
 
     ctx := context.Background()
     res, err := s.Ats.Applications.Delete(ctx, operations.ApplicationsDeleteRequest{
@@ -199,7 +199,7 @@ func main() {
     s := apidecksamplesdk.New()
 
 
-    operationSecurity := ""
+    operationSecurity := "<your-apideck-api-key>"
 
     ctx := context.Background()
     res, err := s.Ats.Applications.One(ctx, operations.ApplicationsOneRequest{
@@ -252,7 +252,7 @@ func main() {
     s := apidecksamplesdk.New()
 
 
-    operationSecurity := ""
+    operationSecurity := "<your-apideck-api-key>"
 
     ctx := context.Background()
     res, err := s.Ats.Applications.Update(ctx, operations.ApplicationsUpdateRequest{

@@ -43,8 +43,8 @@ func main() {
             },
             Status: shared.ApplicationStatusOpen.ToPointer(),
         },
-        XApideckAppID: "program",
-        XApideckConsumerID: "North",
+        XApideckAppID: "string",
+        XApideckConsumerID: "string",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -84,7 +84,6 @@ import(
 	"log"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
-	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
 )
 
 func main() {
@@ -95,13 +94,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Ats.Applications.All(ctx, operations.ApplicationsAllRequest{
-        PassThrough: &shared.PassThroughQuery{
-            AdditionalProperties: map[string]interface{}{
-                "search": "deposit",
-            },
+        PassThrough: map[string]interface{}{
+            "search": "string",
         },
-        XApideckAppID: "Mobility",
-        XApideckConsumerID: "Mobility",
+        XApideckAppID: "string",
+        XApideckConsumerID: "string",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -152,8 +149,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Ats.Applications.Delete(ctx, operations.ApplicationsDeleteRequest{
         ID: "<ID>",
-        XApideckAppID: "roughly",
-        XApideckConsumerID: "EXE",
+        XApideckAppID: "string",
+        XApideckConsumerID: "string",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -204,8 +201,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Ats.Applications.One(ctx, operations.ApplicationsOneRequest{
         ID: "<ID>",
-        XApideckAppID: "primary",
-        XApideckConsumerID: "Fall",
+        XApideckAppID: "string",
+        XApideckConsumerID: "string",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -266,8 +263,8 @@ func main() {
             Status: shared.ApplicationStatusOpen.ToPointer(),
         },
         ID: "<ID>",
-        XApideckAppID: "up",
-        XApideckConsumerID: "complexity",
+        XApideckAppID: "string",
+        XApideckConsumerID: "string",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)

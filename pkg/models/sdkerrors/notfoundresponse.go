@@ -12,13 +12,6 @@ import (
 type NotFoundResponseDetail2 struct {
 }
 
-var _ error = &NotFoundResponseDetail2{}
-
-func (e *NotFoundResponseDetail2) Error() string {
-	data, _ := json.Marshal(e)
-	return string(data)
-}
-
 type NotFoundResponseDetailType string
 
 const (
@@ -53,17 +46,17 @@ func CreateNotFoundResponseDetailNotFoundResponseDetail2(notFoundResponseDetail2
 
 func (u *NotFoundResponseDetail) UnmarshalJSON(data []byte) error {
 
-	str := new(string)
-	if err := utils.UnmarshalJSON(data, &str, "", true, true); err == nil {
-		u.Str = str
-		u.Type = NotFoundResponseDetailTypeStr
-		return nil
-	}
-
 	notFoundResponseDetail2 := new(NotFoundResponseDetail2)
 	if err := utils.UnmarshalJSON(data, &notFoundResponseDetail2, "", true, true); err == nil {
 		u.NotFoundResponseDetail2 = notFoundResponseDetail2
 		u.Type = NotFoundResponseDetailTypeNotFoundResponseDetail2
+		return nil
+	}
+
+	str := new(string)
+	if err := utils.UnmarshalJSON(data, &str, "", true, true); err == nil {
+		u.Str = str
+		u.Type = NotFoundResponseDetailTypeStr
 		return nil
 	}
 

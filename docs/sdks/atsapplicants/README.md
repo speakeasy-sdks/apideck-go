@@ -144,8 +144,8 @@ func main() {
                 },
             },
         },
-        XApideckAppID: "Small",
-        XApideckConsumerID: "West",
+        XApideckAppID: "string",
+        XApideckConsumerID: "string",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -199,13 +199,11 @@ func main() {
         Filter: &shared.ApplicantsFilter{
             JobID: apideckgo.String("1234"),
         },
-        PassThrough: &shared.PassThroughQuery{
-            AdditionalProperties: map[string]interface{}{
-                "search": "deposit",
-            },
+        PassThrough: map[string]interface{}{
+            "search": "string",
         },
-        XApideckAppID: "Mobility",
-        XApideckConsumerID: "Mobility",
+        XApideckAppID: "string",
+        XApideckConsumerID: "string",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -256,8 +254,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Ats.Applicants.Delete(ctx, operations.ApplicantsDeleteRequest{
         ID: "<ID>",
-        XApideckAppID: "roughly",
-        XApideckConsumerID: "EXE",
+        XApideckAppID: "string",
+        XApideckConsumerID: "string",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -308,8 +306,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Ats.Applicants.One(ctx, operations.ApplicantsOneRequest{
         ID: "<ID>",
-        XApideckAppID: "primary",
-        XApideckConsumerID: "Fall",
+        XApideckAppID: "string",
+        XApideckConsumerID: "string",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -471,8 +469,8 @@ func main() {
             },
         },
         ID: "<ID>",
-        XApideckAppID: "South",
-        XApideckConsumerID: "complexity",
+        XApideckAppID: "string",
+        XApideckConsumerID: "string",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)

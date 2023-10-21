@@ -144,8 +144,8 @@ func main() {
 				},
 			},
 		},
-		XApideckAppID:      "Small",
-		XApideckConsumerID: "West",
+		XApideckAppID:      "string",
+		XApideckConsumerID: "string",
 	}, operationSecurity)
 	if err != nil {
 		log.Fatal(err)

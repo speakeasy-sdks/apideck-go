@@ -20,7 +20,6 @@ import(
 	"log"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
-	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
 )
 
 func main() {
@@ -31,13 +30,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Ats.Jobs.All(ctx, operations.JobsAllRequest{
-        PassThrough: &shared.PassThroughQuery{
-            AdditionalProperties: map[string]interface{}{
-                "search": "deposit",
-            },
+        PassThrough: map[string]interface{}{
+            "search": "string",
         },
-        XApideckAppID: "Mobility",
-        XApideckConsumerID: "Mobility",
+        XApideckAppID: "string",
+        XApideckConsumerID: "string",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -88,8 +85,8 @@ func main() {
     ctx := context.Background()
     res, err := s.Ats.Jobs.One(ctx, operations.JobsOneRequest{
         ID: "<ID>",
-        XApideckAppID: "primary",
-        XApideckConsumerID: "Fall",
+        XApideckAppID: "string",
+        XApideckConsumerID: "string",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)

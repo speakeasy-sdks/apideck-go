@@ -29,7 +29,7 @@ type ApplicantsAllRequest struct {
 	// Number of results to return. Minimum 1, Maximum 200, Default 20
 	Limit *int64 `default:"20" queryParam:"style=form,explode=true,name=limit"`
 	// Optional unmapped key/values that will be passed through to downstream as query parameters. Ie: ?pass_through[search]=leads becomes ?search=leads
-	PassThrough *shared.PassThroughQuery `queryParam:"style=deepObject,explode=true,name=pass_through"`
+	PassThrough map[string]interface{} `queryParam:"style=deepObject,explode=true,name=pass_through"`
 	// Include raw response. Mostly used for debugging purposes
 	Raw *bool `default:"false" queryParam:"style=form,explode=true,name=raw"`
 	// The ID of your Unify application
@@ -79,7 +79,7 @@ func (o *ApplicantsAllRequest) GetLimit() *int64 {
 	return o.Limit
 }
 
-func (o *ApplicantsAllRequest) GetPassThrough() *shared.PassThroughQuery {
+func (o *ApplicantsAllRequest) GetPassThrough() map[string]interface{} {
 	if o == nil {
 		return nil
 	}

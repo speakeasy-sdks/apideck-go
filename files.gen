@@ -45,7 +45,6 @@ pkg/models/shared/address.go
 pkg/models/shared/getapplicantsresponse.go
 pkg/models/shared/meta.go
 pkg/models/shared/links.go
-pkg/models/shared/passthroughquery.go
 pkg/models/shared/applicantsfilter.go
 pkg/models/shared/deleteapplicantresponse.go
 pkg/models/shared/getapplicantresponse.go
@@ -129,7 +128,6 @@ docs/models/shared/getapplicantsresponse.md
 docs/models/shared/metacursors.md
 docs/models/shared/meta.md
 docs/models/shared/links.md
-docs/models/shared/passthroughquery.md
 docs/models/shared/applicantsfilter.md
 docs/models/shared/deleteapplicantresponse.md
 docs/models/shared/getapplicantresponse.md

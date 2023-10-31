@@ -9,7 +9,7 @@ generation:
     disableComments: false
     omitDescriptionIfSummaryPresent: false
   baseServerURL: ""
-  repoURL: https://github.com/speakeasy-sdks/apideck-go.git
+  repoURL: https://github.com/speakeasy-sdks/apideck-python.git
   sdkClassName: apideck
   singleTagPerOp: false
   tagNamespacingDisabled: false

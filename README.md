@@ -216,6 +216,527 @@ d6 := types.MustDateFromString("2019-01-01") // returns types.Date and panics on
 ```
 <!-- End Go Types -->
 
+
+
+<!-- Start Error Handling -->
+# Error Handling
+
+Handling errors in your SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
+
+
+## Example
+
+```go
+package main
+
+import (
+	"context"
+	apideckgo "github.com/speakeasy-sdks/apideck-go"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
+	"github.com/speakeasy-sdks/apideck-go/pkg/types"
+	"log"
+)
+
+func main() {
+	s := apideckgo.New()
+
+	operationSecurity := "<your-apideck-api-key>"
+
+	ctx := context.Background()
+	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
+		ApplicantInput: shared.ApplicantInput{
+			Addresses: []shared.Address{
+				shared.Address{
+					City:         apideckgo.String("San Francisco"),
+					ContactName:  apideckgo.String("Elon Musk"),
+					Country:      apideckgo.String("US"),
+					County:       apideckgo.String("Santa Clara"),
+					Email:        apideckgo.String("elon@musk.com"),
+					Fax:          apideckgo.String("122-111-1111"),
+					ID:           apideckgo.String("123"),
+					Latitude:     apideckgo.String("40.759211"),
+					Line1:        apideckgo.String("Main street"),
+					Line2:        apideckgo.String("apt #"),
+					Line3:        apideckgo.String("Suite #"),
+					Line4:        apideckgo.String("delivery instructions"),
+					Longitude:    apideckgo.String("-73.984638"),
+					Name:         apideckgo.String("HQ US"),
+					Notes:        apideckgo.String("Address notes or delivery instructions."),
+					PhoneNumber:  apideckgo.String("111-111-1111"),
+					PostalCode:   apideckgo.String("94104"),
+					RowVersion:   apideckgo.String("1-12345"),
+					Salutation:   apideckgo.String("Mr"),
+					State:        apideckgo.String("CA"),
+					StreetNumber: apideckgo.String("25"),
+					String:       apideckgo.String("25 Spring Street, Blackburn, VIC 3130"),
+					Type:         shared.AddressTypePrimary.ToPointer(),
+					Website:      apideckgo.String("https://elonmusk.com"),
+				},
+			},
+			Anonymized: apideckgo.Bool(true),
+			ApplicationIds: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Applications: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Archived:      apideckgo.Bool(false),
+			Birthday:      types.MustDateFromString("2000-08-12"),
+			Confidential:  apideckgo.Bool(false),
+			CoordinatorID: apideckgo.String("12345"),
+			CoverLetter:   apideckgo.String("I submit this application to express my sincere interest in the API developer position. In the previous role, I was responsible for leadership and ..."),
+			CustomFields: []shared.CustomField{
+				shared.CustomField{
+					Description: apideckgo.String("Employee Level"),
+					ID:          "2389328923893298",
+					Name:        apideckgo.String("employee_level"),
+					Value: shared.CreateCustomFieldValueBoolean(
+						true,
+					),
+				},
+			},
+			Deleted: apideckgo.Bool(true),
+			Emails: []shared.Email{
+				shared.Email{
+					Email: "elon@musk.com",
+					ID:    apideckgo.String("123"),
+					Type:  shared.EmailTypePrimary.ToPointer(),
+				},
+			},
+			FirstName: apideckgo.String("Elon"),
+			Followers: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Headline:   apideckgo.String("PepsiCo, Inc, Central Perk"),
+			Initials:   apideckgo.String("EM"),
+			LastName:   apideckgo.String("Musk"),
+			MiddleName: apideckgo.String("D."),
+			Name:       apideckgo.String("Elon Musk"),
+			OwnerID:    apideckgo.String("54321"),
+			PhoneNumbers: []shared.PhoneNumber{
+				shared.PhoneNumber{
+					AreaCode:    apideckgo.String("323"),
+					CountryCode: apideckgo.String("1"),
+					Extension:   apideckgo.String("105"),
+					ID:          apideckgo.String("12345"),
+					Number:      "111-111-1111",
+					Type:        shared.PhoneNumberTypePrimary.ToPointer(),
+				},
+			},
+			PhotoURL:    apideckgo.String("https://unavatar.io/elon-musk"),
+			PositionID:  apideckgo.String("123"),
+			RecordURL:   apideckgo.String("https://app.intercom.io/contacts/12345"),
+			RecruiterID: apideckgo.String("12345"),
+			SocialLinks: []shared.ApplicantSocialLinks{
+				shared.ApplicantSocialLinks{
+					ID:   apideckgo.String("12345"),
+					Type: apideckgo.String("twitter"),
+					URL:  "https://www.twitter.com/apideck",
+				},
+			},
+			Sources: []string{
+				"Job site",
+			},
+			StageID: apideckgo.String("12345"),
+			Tags: []string{
+				"New",
+			},
+			Title: apideckgo.String("CEO"),
+			Websites: []shared.ApplicantWebsites{
+				shared.ApplicantWebsites{
+					ID:   apideckgo.String("12345"),
+					Type: shared.ApplicantWebsitesTypePrimary.ToPointer(),
+					URL:  "http://example.com",
+				},
+			},
+		},
+		XApideckAppID:      "string",
+		XApideckConsumerID: "string",
+	}, operationSecurity)
+	if err != nil {
+
+		var e *BadRequestResponse
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+
+		var e *UnauthorizedResponse
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+
+		var e *PaymentRequiredResponse
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+
+		var e *NotFoundResponse
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+
+		var e *UnprocessableResponse
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+
+	}
+}
+
+```
+<!-- End Error Handling -->
+
+
+
+<!-- Start Server Selection -->
+# Server Selection
+
+## Select Server by Index
+
+You can override the default server globally using the `WithServerIndex` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://unify.apideck.com` | None |
+
+For example:
+
+
+```go
+package main
+
+import (
+	"context"
+	apideckgo "github.com/speakeasy-sdks/apideck-go"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
+	"github.com/speakeasy-sdks/apideck-go/pkg/types"
+	"log"
+)
+
+func main() {
+	s := apideckgo.New(
+		apideckgo.WithServerIndex(0),
+	)
+
+	operationSecurity := "<your-apideck-api-key>"
+
+	ctx := context.Background()
+	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
+		ApplicantInput: shared.ApplicantInput{
+			Addresses: []shared.Address{
+				shared.Address{
+					City:         apideckgo.String("San Francisco"),
+					ContactName:  apideckgo.String("Elon Musk"),
+					Country:      apideckgo.String("US"),
+					County:       apideckgo.String("Santa Clara"),
+					Email:        apideckgo.String("elon@musk.com"),
+					Fax:          apideckgo.String("122-111-1111"),
+					ID:           apideckgo.String("123"),
+					Latitude:     apideckgo.String("40.759211"),
+					Line1:        apideckgo.String("Main street"),
+					Line2:        apideckgo.String("apt #"),
+					Line3:        apideckgo.String("Suite #"),
+					Line4:        apideckgo.String("delivery instructions"),
+					Longitude:    apideckgo.String("-73.984638"),
+					Name:         apideckgo.String("HQ US"),
+					Notes:        apideckgo.String("Address notes or delivery instructions."),
+					PhoneNumber:  apideckgo.String("111-111-1111"),
+					PostalCode:   apideckgo.String("94104"),
+					RowVersion:   apideckgo.String("1-12345"),
+					Salutation:   apideckgo.String("Mr"),
+					State:        apideckgo.String("CA"),
+					StreetNumber: apideckgo.String("25"),
+					String:       apideckgo.String("25 Spring Street, Blackburn, VIC 3130"),
+					Type:         shared.AddressTypePrimary.ToPointer(),
+					Website:      apideckgo.String("https://elonmusk.com"),
+				},
+			},
+			Anonymized: apideckgo.Bool(true),
+			ApplicationIds: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Applications: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Archived:      apideckgo.Bool(false),
+			Birthday:      types.MustDateFromString("2000-08-12"),
+			Confidential:  apideckgo.Bool(false),
+			CoordinatorID: apideckgo.String("12345"),
+			CoverLetter:   apideckgo.String("I submit this application to express my sincere interest in the API developer position. In the previous role, I was responsible for leadership and ..."),
+			CustomFields: []shared.CustomField{
+				shared.CustomField{
+					Description: apideckgo.String("Employee Level"),
+					ID:          "2389328923893298",
+					Name:        apideckgo.String("employee_level"),
+					Value: shared.CreateCustomFieldValueBoolean(
+						true,
+					),
+				},
+			},
+			Deleted: apideckgo.Bool(true),
+			Emails: []shared.Email{
+				shared.Email{
+					Email: "elon@musk.com",
+					ID:    apideckgo.String("123"),
+					Type:  shared.EmailTypePrimary.ToPointer(),
+				},
+			},
+			FirstName: apideckgo.String("Elon"),
+			Followers: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Headline:   apideckgo.String("PepsiCo, Inc, Central Perk"),
+			Initials:   apideckgo.String("EM"),
+			LastName:   apideckgo.String("Musk"),
+			MiddleName: apideckgo.String("D."),
+			Name:       apideckgo.String("Elon Musk"),
+			OwnerID:    apideckgo.String("54321"),
+			PhoneNumbers: []shared.PhoneNumber{
+				shared.PhoneNumber{
+					AreaCode:    apideckgo.String("323"),
+					CountryCode: apideckgo.String("1"),
+					Extension:   apideckgo.String("105"),
+					ID:          apideckgo.String("12345"),
+					Number:      "111-111-1111",
+					Type:        shared.PhoneNumberTypePrimary.ToPointer(),
+				},
+			},
+			PhotoURL:    apideckgo.String("https://unavatar.io/elon-musk"),
+			PositionID:  apideckgo.String("123"),
+			RecordURL:   apideckgo.String("https://app.intercom.io/contacts/12345"),
+			RecruiterID: apideckgo.String("12345"),
+			SocialLinks: []shared.ApplicantSocialLinks{
+				shared.ApplicantSocialLinks{
+					ID:   apideckgo.String("12345"),
+					Type: apideckgo.String("twitter"),
+					URL:  "https://www.twitter.com/apideck",
+				},
+			},
+			Sources: []string{
+				"Job site",
+			},
+			StageID: apideckgo.String("12345"),
+			Tags: []string{
+				"New",
+			},
+			Title: apideckgo.String("CEO"),
+			Websites: []shared.ApplicantWebsites{
+				shared.ApplicantWebsites{
+					ID:   apideckgo.String("12345"),
+					Type: shared.ApplicantWebsitesTypePrimary.ToPointer(),
+					URL:  "http://example.com",
+				},
+			},
+		},
+		XApideckAppID:      "string",
+		XApideckConsumerID: "string",
+	}, operationSecurity)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.CreateApplicantResponse != nil {
+		// handle response
+	}
+}
+
+```
+
+
+## Override Server URL Per-Client
+
+The default server can also be overridden globally using the `WithServerURL` option when initializing the SDK client instance. For example:
+
+
+```go
+package main
+
+import (
+	"context"
+	apideckgo "github.com/speakeasy-sdks/apideck-go"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
+	"github.com/speakeasy-sdks/apideck-go/pkg/types"
+	"log"
+)
+
+func main() {
+	s := apideckgo.New(
+		apideckgo.WithServerURL("https://unify.apideck.com"),
+	)
+
+	operationSecurity := "<your-apideck-api-key>"
+
+	ctx := context.Background()
+	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
+		ApplicantInput: shared.ApplicantInput{
+			Addresses: []shared.Address{
+				shared.Address{
+					City:         apideckgo.String("San Francisco"),
+					ContactName:  apideckgo.String("Elon Musk"),
+					Country:      apideckgo.String("US"),
+					County:       apideckgo.String("Santa Clara"),
+					Email:        apideckgo.String("elon@musk.com"),
+					Fax:          apideckgo.String("122-111-1111"),
+					ID:           apideckgo.String("123"),
+					Latitude:     apideckgo.String("40.759211"),
+					Line1:        apideckgo.String("Main street"),
+					Line2:        apideckgo.String("apt #"),
+					Line3:        apideckgo.String("Suite #"),
+					Line4:        apideckgo.String("delivery instructions"),
+					Longitude:    apideckgo.String("-73.984638"),
+					Name:         apideckgo.String("HQ US"),
+					Notes:        apideckgo.String("Address notes or delivery instructions."),
+					PhoneNumber:  apideckgo.String("111-111-1111"),
+					PostalCode:   apideckgo.String("94104"),
+					RowVersion:   apideckgo.String("1-12345"),
+					Salutation:   apideckgo.String("Mr"),
+					State:        apideckgo.String("CA"),
+					StreetNumber: apideckgo.String("25"),
+					String:       apideckgo.String("25 Spring Street, Blackburn, VIC 3130"),
+					Type:         shared.AddressTypePrimary.ToPointer(),
+					Website:      apideckgo.String("https://elonmusk.com"),
+				},
+			},
+			Anonymized: apideckgo.Bool(true),
+			ApplicationIds: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Applications: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Archived:      apideckgo.Bool(false),
+			Birthday:      types.MustDateFromString("2000-08-12"),
+			Confidential:  apideckgo.Bool(false),
+			CoordinatorID: apideckgo.String("12345"),
+			CoverLetter:   apideckgo.String("I submit this application to express my sincere interest in the API developer position. In the previous role, I was responsible for leadership and ..."),
+			CustomFields: []shared.CustomField{
+				shared.CustomField{
+					Description: apideckgo.String("Employee Level"),
+					ID:          "2389328923893298",
+					Name:        apideckgo.String("employee_level"),
+					Value: shared.CreateCustomFieldValueBoolean(
+						true,
+					),
+				},
+			},
+			Deleted: apideckgo.Bool(true),
+			Emails: []shared.Email{
+				shared.Email{
+					Email: "elon@musk.com",
+					ID:    apideckgo.String("123"),
+					Type:  shared.EmailTypePrimary.ToPointer(),
+				},
+			},
+			FirstName: apideckgo.String("Elon"),
+			Followers: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Headline:   apideckgo.String("PepsiCo, Inc, Central Perk"),
+			Initials:   apideckgo.String("EM"),
+			LastName:   apideckgo.String("Musk"),
+			MiddleName: apideckgo.String("D."),
+			Name:       apideckgo.String("Elon Musk"),
+			OwnerID:    apideckgo.String("54321"),
+			PhoneNumbers: []shared.PhoneNumber{
+				shared.PhoneNumber{
+					AreaCode:    apideckgo.String("323"),
+					CountryCode: apideckgo.String("1"),
+					Extension:   apideckgo.String("105"),
+					ID:          apideckgo.String("12345"),
+					Number:      "111-111-1111",
+					Type:        shared.PhoneNumberTypePrimary.ToPointer(),
+				},
+			},
+			PhotoURL:    apideckgo.String("https://unavatar.io/elon-musk"),
+			PositionID:  apideckgo.String("123"),
+			RecordURL:   apideckgo.String("https://app.intercom.io/contacts/12345"),
+			RecruiterID: apideckgo.String("12345"),
+			SocialLinks: []shared.ApplicantSocialLinks{
+				shared.ApplicantSocialLinks{
+					ID:   apideckgo.String("12345"),
+					Type: apideckgo.String("twitter"),
+					URL:  "https://www.twitter.com/apideck",
+				},
+			},
+			Sources: []string{
+				"Job site",
+			},
+			StageID: apideckgo.String("12345"),
+			Tags: []string{
+				"New",
+			},
+			Title: apideckgo.String("CEO"),
+			Websites: []shared.ApplicantWebsites{
+				shared.ApplicantWebsites{
+					ID:   apideckgo.String("12345"),
+					Type: shared.ApplicantWebsitesTypePrimary.ToPointer(),
+					URL:  "http://example.com",
+				},
+			},
+		},
+		XApideckAppID:      "string",
+		XApideckConsumerID: "string",
+	}, operationSecurity)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.CreateApplicantResponse != nil {
+		// handle response
+	}
+}
+
+```
+<!-- End Server Selection -->
+
+
+
+<!-- Start Custom HTTP Client -->
+# Custom HTTP Client
+
+The Go SDK makes API calls that wrap an internal HTTP client. The requirements for the HTTP client are very simple. It must match this interface:
+
+```go
+type HTTPClient interface {
+	Do(req *http.Request) (*http.Response, error)
+}
+```
+
+The built-in `net/http` client satisfies this interface and a default client based on the built-in is provided by default. To replace this default with a client of your own, you can implement this interface yourself or provide your own client configured as desired. Here's a simple example, which adds a client with a 30 second timeout.
+
+```go
+import (
+	"net/http"
+	"time"
+	"github.com/myorg/your-go-sdk"
+)
+
+var (
+	httpClient = &http.Client{Timeout: 30 * time.Second}
+	sdkClient  = sdk.New(sdk.WithClient(httpClient))
+)
+```
+
+This can be a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration.
+<!-- End Custom HTTP Client -->
+
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
 # Development

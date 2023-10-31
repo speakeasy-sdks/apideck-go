@@ -2,14 +2,14 @@ configVersion: 1.0.0
 management:
   docChecksum: d788c5f94d734dca4393cd302727404d
   docVersion: 9.9.2
-  speakeasyVersion: 1.104.0
-  generationVersion: 2.169.0
+  speakeasyVersion: 1.109.0
+  generationVersion: 2.173.0
 generation:
   comments:
     disableComments: false
     omitDescriptionIfSummaryPresent: false
   baseServerURL: ""
-  repoURL: https://github.com/speakeasy-sdks/apideck-python.git
+  repoURL: https://github.com/speakeasy-sdks/apideck-go.git
   sdkClassName: apideck
   singleTagPerOp: false
   tagNamespacingDisabled: false
@@ -27,7 +27,7 @@ features:
     nameOverrides: 2.81.1
     unions: 2.84.0
 go:
-  version: 0.5.0
+  version: 0.6.0
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   installationURL: https://github.com/speakeasy-sdks/apideck-go

@@ -45,16 +45,16 @@ func CreateUnexpectedErrorResponseDetailUnexpectedErrorResponseDetail2(unexpecte
 
 func (u *UnexpectedErrorResponseDetail) UnmarshalJSON(data []byte) error {
 
-	unexpectedErrorResponseDetail2 := new(UnexpectedErrorResponseDetail2)
+	unexpectedErrorResponseDetail2 := UnexpectedErrorResponseDetail2{}
 	if err := utils.UnmarshalJSON(data, &unexpectedErrorResponseDetail2, "", true, true); err == nil {
-		u.UnexpectedErrorResponseDetail2 = unexpectedErrorResponseDetail2
+		u.UnexpectedErrorResponseDetail2 = &unexpectedErrorResponseDetail2
 		u.Type = UnexpectedErrorResponseDetailTypeUnexpectedErrorResponseDetail2
 		return nil
 	}
 
-	str := new(string)
+	str := ""
 	if err := utils.UnmarshalJSON(data, &str, "", true, true); err == nil {
-		u.Str = str
+		u.Str = &str
 		u.Type = UnexpectedErrorResponseDetailTypeStr
 		return nil
 	}

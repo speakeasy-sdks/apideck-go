@@ -46,16 +46,16 @@ func CreateBadRequestResponseDetailBadRequestResponseDetail2(badRequestResponseD
 
 func (u *BadRequestResponseDetail) UnmarshalJSON(data []byte) error {
 
-	badRequestResponseDetail2 := new(BadRequestResponseDetail2)
+	badRequestResponseDetail2 := BadRequestResponseDetail2{}
 	if err := utils.UnmarshalJSON(data, &badRequestResponseDetail2, "", true, true); err == nil {
-		u.BadRequestResponseDetail2 = badRequestResponseDetail2
+		u.BadRequestResponseDetail2 = &badRequestResponseDetail2
 		u.Type = BadRequestResponseDetailTypeBadRequestResponseDetail2
 		return nil
 	}
 
-	str := new(string)
+	str := ""
 	if err := utils.UnmarshalJSON(data, &str, "", true, true); err == nil {
-		u.Str = str
+		u.Str = &str
 		u.Type = BadRequestResponseDetailTypeStr
 		return nil
 	}

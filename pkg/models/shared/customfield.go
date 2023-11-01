@@ -77,30 +77,30 @@ func CreateCustomFieldValueArrayOfstr(arrayOfstr []string) CustomFieldValue {
 
 func (u *CustomFieldValue) UnmarshalJSON(data []byte) error {
 
-	customFieldValue4 := new(CustomFieldValue4)
+	customFieldValue4 := CustomFieldValue4{}
 	if err := utils.UnmarshalJSON(data, &customFieldValue4, "", true, true); err == nil {
-		u.CustomFieldValue4 = customFieldValue4
+		u.CustomFieldValue4 = &customFieldValue4
 		u.Type = CustomFieldValueTypeCustomFieldValue4
 		return nil
 	}
 
-	str := new(string)
+	str := ""
 	if err := utils.UnmarshalJSON(data, &str, "", true, true); err == nil {
-		u.Str = str
+		u.Str = &str
 		u.Type = CustomFieldValueTypeStr
 		return nil
 	}
 
-	number := new(float64)
+	number := float64(0)
 	if err := utils.UnmarshalJSON(data, &number, "", true, true); err == nil {
-		u.Number = number
+		u.Number = &number
 		u.Type = CustomFieldValueTypeNumber
 		return nil
 	}
 
-	boolean := new(bool)
+	boolean := false
 	if err := utils.UnmarshalJSON(data, &boolean, "", true, true); err == nil {
-		u.Boolean = boolean
+		u.Boolean = &boolean
 		u.Type = CustomFieldValueTypeBoolean
 		return nil
 	}

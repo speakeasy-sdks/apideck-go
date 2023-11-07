@@ -2,8 +2,8 @@
 
 package shared
 
-// MetaCursors - Cursors to navigate to previous or next pages through the API
-type MetaCursors struct {
+// Cursors to navigate to previous or next pages through the API
+type Cursors struct {
 	// Cursor to navigate to the current page of results through the API
 	Current *string `json:"current,omitempty"`
 	// Cursor to navigate to the next page of results through the API
@@ -12,21 +12,21 @@ type MetaCursors struct {
 	Previous *string `json:"previous,omitempty"`
 }
 
-func (o *MetaCursors) GetCurrent() *string {
+func (o *Cursors) GetCurrent() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Current
 }
 
-func (o *MetaCursors) GetNext() *string {
+func (o *Cursors) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *MetaCursors) GetPrevious() *string {
+func (o *Cursors) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
@@ -36,12 +36,12 @@ func (o *MetaCursors) GetPrevious() *string {
 // Meta - Response metadata
 type Meta struct {
 	// Cursors to navigate to previous or next pages through the API
-	Cursors *MetaCursors `json:"cursors,omitempty"`
+	Cursors *Cursors `json:"cursors,omitempty"`
 	// Number of items returned in the data property of the response
 	ItemsOnPage *int64 `json:"items_on_page,omitempty"`
 }
 
-func (o *Meta) GetCursors() *MetaCursors {
+func (o *Meta) GetCursors() *Cursors {
 	if o == nil {
 		return nil
 	}

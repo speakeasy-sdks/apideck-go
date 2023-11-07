@@ -31,11 +31,13 @@ import (
 func main() {
 	s := apideckgo.New()
 
-	operationSecurity := "<your-apideck-api-key>"
+	operationSecurity := operations.ApplicantsAddSecurity{
+		APIKey: "<your-apideck-api-key>",
+	}
 
 	ctx := context.Background()
 	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
-		ApplicantInput: shared.ApplicantInput{
+		Applicant: shared.ApplicantInput{
 			Addresses: []shared.Address{
 				shared.Address{
 					City:         apideckgo.String("San Francisco"),
@@ -60,7 +62,7 @@ func main() {
 					State:        apideckgo.String("CA"),
 					StreetNumber: apideckgo.String("25"),
 					String:       apideckgo.String("25 Spring Street, Blackburn, VIC 3130"),
-					Type:         shared.AddressTypePrimary.ToPointer(),
+					Type:         shared.TypePrimary.ToPointer(),
 					Website:      apideckgo.String("https://elonmusk.com"),
 				},
 			},
@@ -83,7 +85,7 @@ func main() {
 					Description: apideckgo.String("Employee Level"),
 					ID:          "2389328923893298",
 					Name:        apideckgo.String("employee_level"),
-					Value: shared.CreateCustomFieldValueBoolean(
+					Value: shared.CreateValueBoolean(
 						true,
 					),
 				},
@@ -121,8 +123,8 @@ func main() {
 			PositionID:  apideckgo.String("123"),
 			RecordURL:   apideckgo.String("https://app.intercom.io/contacts/12345"),
 			RecruiterID: apideckgo.String("12345"),
-			SocialLinks: []shared.ApplicantSocialLinks{
-				shared.ApplicantSocialLinks{
+			SocialLinks: []shared.SocialLinks{
+				shared.SocialLinks{
 					ID:   apideckgo.String("12345"),
 					Type: apideckgo.String("twitter"),
 					URL:  "https://www.twitter.com/apideck",
@@ -136,10 +138,10 @@ func main() {
 				"New",
 			},
 			Title: apideckgo.String("CEO"),
-			Websites: []shared.ApplicantWebsites{
-				shared.ApplicantWebsites{
+			Websites: []shared.Websites{
+				shared.Websites{
 					ID:   apideckgo.String("12345"),
-					Type: shared.ApplicantWebsitesTypePrimary.ToPointer(),
+					Type: shared.ApplicantTypePrimary.ToPointer(),
 					URL:  "http://example.com",
 				},
 			},
@@ -164,26 +166,26 @@ func main() {
 
 
 
-### [Ats.Applicants](docs/sdks/atsapplicants/README.md)
+### [.Ats.Applicants](docs/sdks/applicants/README.md)
 
-* [Add](docs/sdks/atsapplicants/README.md#add) - Create Applicant
-* [All](docs/sdks/atsapplicants/README.md#all) - List Applicants
-* [Delete](docs/sdks/atsapplicants/README.md#delete) - Delete Applicant
-* [One](docs/sdks/atsapplicants/README.md#one) - Get Applicant
-* [Update](docs/sdks/atsapplicants/README.md#update) - Update Applicant
+* [Add](docs/sdks/applicants/README.md#add) - Create Applicant
+* [All](docs/sdks/applicants/README.md#all) - List Applicants
+* [Delete](docs/sdks/applicants/README.md#delete) - Delete Applicant
+* [One](docs/sdks/applicants/README.md#one) - Get Applicant
+* [Update](docs/sdks/applicants/README.md#update) - Update Applicant
 
-### [Ats.Applications](docs/sdks/atsapplications/README.md)
+### [.Ats.Applications](docs/sdks/applications/README.md)
 
-* [Add](docs/sdks/atsapplications/README.md#add) - Create Application
-* [All](docs/sdks/atsapplications/README.md#all) - List Applications
-* [Delete](docs/sdks/atsapplications/README.md#delete) - Delete Application
-* [One](docs/sdks/atsapplications/README.md#one) - Get Application
-* [Update](docs/sdks/atsapplications/README.md#update) - Update Application
+* [Add](docs/sdks/applications/README.md#add) - Create Application
+* [All](docs/sdks/applications/README.md#all) - List Applications
+* [Delete](docs/sdks/applications/README.md#delete) - Delete Application
+* [One](docs/sdks/applications/README.md#one) - Get Application
+* [Update](docs/sdks/applications/README.md#update) - Update Application
 
-### [Ats.Jobs](docs/sdks/atsjobs/README.md)
+### [.Ats.Jobs](docs/sdks/jobs/README.md)
 
-* [All](docs/sdks/atsjobs/README.md#all) - List Jobs
-* [One](docs/sdks/atsjobs/README.md#one) - Get Job
+* [All](docs/sdks/jobs/README.md#all) - List Jobs
+* [One](docs/sdks/jobs/README.md#one) - Get Job
 <!-- End SDK Available Operations -->
 
 <!-- Start Dev Containers -->
@@ -241,11 +243,13 @@ import (
 func main() {
 	s := apideckgo.New()
 
-	operationSecurity := "<your-apideck-api-key>"
+	operationSecurity := operations.ApplicantsAddSecurity{
+		APIKey: "<your-apideck-api-key>",
+	}
 
 	ctx := context.Background()
 	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
-		ApplicantInput: shared.ApplicantInput{
+		Applicant: shared.ApplicantInput{
 			Addresses: []shared.Address{
 				shared.Address{
 					City:         apideckgo.String("San Francisco"),
@@ -270,7 +274,7 @@ func main() {
 					State:        apideckgo.String("CA"),
 					StreetNumber: apideckgo.String("25"),
 					String:       apideckgo.String("25 Spring Street, Blackburn, VIC 3130"),
-					Type:         shared.AddressTypePrimary.ToPointer(),
+					Type:         shared.TypePrimary.ToPointer(),
 					Website:      apideckgo.String("https://elonmusk.com"),
 				},
 			},
@@ -293,7 +297,7 @@ func main() {
 					Description: apideckgo.String("Employee Level"),
 					ID:          "2389328923893298",
 					Name:        apideckgo.String("employee_level"),
-					Value: shared.CreateCustomFieldValueBoolean(
+					Value: shared.CreateValueBoolean(
 						true,
 					),
 				},
@@ -331,8 +335,8 @@ func main() {
 			PositionID:  apideckgo.String("123"),
 			RecordURL:   apideckgo.String("https://app.intercom.io/contacts/12345"),
 			RecruiterID: apideckgo.String("12345"),
-			SocialLinks: []shared.ApplicantSocialLinks{
-				shared.ApplicantSocialLinks{
+			SocialLinks: []shared.SocialLinks{
+				shared.SocialLinks{
 					ID:   apideckgo.String("12345"),
 					Type: apideckgo.String("twitter"),
 					URL:  "https://www.twitter.com/apideck",
@@ -346,10 +350,10 @@ func main() {
 				"New",
 			},
 			Title: apideckgo.String("CEO"),
-			Websites: []shared.ApplicantWebsites{
-				shared.ApplicantWebsites{
+			Websites: []shared.Websites{
+				shared.Websites{
 					ID:   apideckgo.String("12345"),
-					Type: shared.ApplicantWebsitesTypePrimary.ToPointer(),
+					Type: shared.ApplicantTypePrimary.ToPointer(),
 					URL:  "http://example.com",
 				},
 			},
@@ -359,31 +363,31 @@ func main() {
 	}, operationSecurity)
 	if err != nil {
 
-		var e *BadRequestResponse
+		var e *sdkerrors.BadRequestResponse
 		if errors.As(err, &e) {
 			// handle error
 			log.Fatal(e.Error())
 		}
 
-		var e *UnauthorizedResponse
+		var e *sdkerrors.UnauthorizedResponse
 		if errors.As(err, &e) {
 			// handle error
 			log.Fatal(e.Error())
 		}
 
-		var e *PaymentRequiredResponse
+		var e *sdkerrors.PaymentRequiredResponse
 		if errors.As(err, &e) {
 			// handle error
 			log.Fatal(e.Error())
 		}
 
-		var e *NotFoundResponse
+		var e *sdkerrors.NotFoundResponse
 		if errors.As(err, &e) {
 			// handle error
 			log.Fatal(e.Error())
 		}
 
-		var e *UnprocessableResponse
+		var e *sdkerrors.UnprocessableResponse
 		if errors.As(err, &e) {
 			// handle error
 			log.Fatal(e.Error())
@@ -410,7 +414,6 @@ You can override the default server globally using the `WithServerIndex` option 
 
 For example:
 
-
 ```go
 package main
 
@@ -428,11 +431,13 @@ func main() {
 		apideckgo.WithServerIndex(0),
 	)
 
-	operationSecurity := "<your-apideck-api-key>"
+	operationSecurity := operations.ApplicantsAddSecurity{
+		APIKey: "<your-apideck-api-key>",
+	}
 
 	ctx := context.Background()
 	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
-		ApplicantInput: shared.ApplicantInput{
+		Applicant: shared.ApplicantInput{
 			Addresses: []shared.Address{
 				shared.Address{
 					City:         apideckgo.String("San Francisco"),
@@ -457,7 +462,7 @@ func main() {
 					State:        apideckgo.String("CA"),
 					StreetNumber: apideckgo.String("25"),
 					String:       apideckgo.String("25 Spring Street, Blackburn, VIC 3130"),
-					Type:         shared.AddressTypePrimary.ToPointer(),
+					Type:         shared.TypePrimary.ToPointer(),
 					Website:      apideckgo.String("https://elonmusk.com"),
 				},
 			},
@@ -480,7 +485,7 @@ func main() {
 					Description: apideckgo.String("Employee Level"),
 					ID:          "2389328923893298",
 					Name:        apideckgo.String("employee_level"),
-					Value: shared.CreateCustomFieldValueBoolean(
+					Value: shared.CreateValueBoolean(
 						true,
 					),
 				},
@@ -518,8 +523,8 @@ func main() {
 			PositionID:  apideckgo.String("123"),
 			RecordURL:   apideckgo.String("https://app.intercom.io/contacts/12345"),
 			RecruiterID: apideckgo.String("12345"),
-			SocialLinks: []shared.ApplicantSocialLinks{
-				shared.ApplicantSocialLinks{
+			SocialLinks: []shared.SocialLinks{
+				shared.SocialLinks{
 					ID:   apideckgo.String("12345"),
 					Type: apideckgo.String("twitter"),
 					URL:  "https://www.twitter.com/apideck",
@@ -533,10 +538,10 @@ func main() {
 				"New",
 			},
 			Title: apideckgo.String("CEO"),
-			Websites: []shared.ApplicantWebsites{
-				shared.ApplicantWebsites{
+			Websites: []shared.Websites{
+				shared.Websites{
 					ID:   apideckgo.String("12345"),
-					Type: shared.ApplicantWebsitesTypePrimary.ToPointer(),
+					Type: shared.ApplicantTypePrimary.ToPointer(),
 					URL:  "http://example.com",
 				},
 			},
@@ -560,7 +565,6 @@ func main() {
 
 The default server can also be overridden globally using the `WithServerURL` option when initializing the SDK client instance. For example:
 
-
 ```go
 package main
 
@@ -578,11 +582,13 @@ func main() {
 		apideckgo.WithServerURL("https://unify.apideck.com"),
 	)
 
-	operationSecurity := "<your-apideck-api-key>"
+	operationSecurity := operations.ApplicantsAddSecurity{
+		APIKey: "<your-apideck-api-key>",
+	}
 
 	ctx := context.Background()
 	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
-		ApplicantInput: shared.ApplicantInput{
+		Applicant: shared.ApplicantInput{
 			Addresses: []shared.Address{
 				shared.Address{
 					City:         apideckgo.String("San Francisco"),
@@ -607,7 +613,7 @@ func main() {
 					State:        apideckgo.String("CA"),
 					StreetNumber: apideckgo.String("25"),
 					String:       apideckgo.String("25 Spring Street, Blackburn, VIC 3130"),
-					Type:         shared.AddressTypePrimary.ToPointer(),
+					Type:         shared.TypePrimary.ToPointer(),
 					Website:      apideckgo.String("https://elonmusk.com"),
 				},
 			},
@@ -630,7 +636,7 @@ func main() {
 					Description: apideckgo.String("Employee Level"),
 					ID:          "2389328923893298",
 					Name:        apideckgo.String("employee_level"),
-					Value: shared.CreateCustomFieldValueBoolean(
+					Value: shared.CreateValueBoolean(
 						true,
 					),
 				},
@@ -668,8 +674,8 @@ func main() {
 			PositionID:  apideckgo.String("123"),
 			RecordURL:   apideckgo.String("https://app.intercom.io/contacts/12345"),
 			RecruiterID: apideckgo.String("12345"),
-			SocialLinks: []shared.ApplicantSocialLinks{
-				shared.ApplicantSocialLinks{
+			SocialLinks: []shared.SocialLinks{
+				shared.SocialLinks{
 					ID:   apideckgo.String("12345"),
 					Type: apideckgo.String("twitter"),
 					URL:  "https://www.twitter.com/apideck",
@@ -683,10 +689,10 @@ func main() {
 				"New",
 			},
 			Title: apideckgo.String("CEO"),
-			Websites: []shared.ApplicantWebsites{
-				shared.ApplicantWebsites{
+			Websites: []shared.Websites{
+				shared.Websites{
 					ID:   apideckgo.String("12345"),
-					Type: shared.ApplicantWebsitesTypePrimary.ToPointer(),
+					Type: shared.ApplicantTypePrimary.ToPointer(),
 					URL:  "http://example.com",
 				},
 			},
@@ -736,6 +742,315 @@ var (
 
 This can be a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration.
 <!-- End Custom HTTP Client -->
+
+
+
+<!-- Start Authentication -->
+
+# Authentication
+
+## Per-Client Security Schemes
+
+Your SDK supports the following security scheme globally:
+
+| Name     | Type     | Scheme   |
+| -------- | -------- | -------- |
+| `APIKey` | apiKey   | API key  |
+
+You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
+
+```go
+package main
+
+import (
+	"context"
+	apideckgo "github.com/speakeasy-sdks/apideck-go"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
+	"github.com/speakeasy-sdks/apideck-go/pkg/types"
+	"log"
+)
+
+func main() {
+	s := apideckgo.New()
+
+	operationSecurity := operations.ApplicantsAddSecurity{
+		APIKey: "<your-apideck-api-key>",
+	}
+
+	ctx := context.Background()
+	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
+		Applicant: shared.ApplicantInput{
+			Addresses: []shared.Address{
+				shared.Address{
+					City:         apideckgo.String("San Francisco"),
+					ContactName:  apideckgo.String("Elon Musk"),
+					Country:      apideckgo.String("US"),
+					County:       apideckgo.String("Santa Clara"),
+					Email:        apideckgo.String("elon@musk.com"),
+					Fax:          apideckgo.String("122-111-1111"),
+					ID:           apideckgo.String("123"),
+					Latitude:     apideckgo.String("40.759211"),
+					Line1:        apideckgo.String("Main street"),
+					Line2:        apideckgo.String("apt #"),
+					Line3:        apideckgo.String("Suite #"),
+					Line4:        apideckgo.String("delivery instructions"),
+					Longitude:    apideckgo.String("-73.984638"),
+					Name:         apideckgo.String("HQ US"),
+					Notes:        apideckgo.String("Address notes or delivery instructions."),
+					PhoneNumber:  apideckgo.String("111-111-1111"),
+					PostalCode:   apideckgo.String("94104"),
+					RowVersion:   apideckgo.String("1-12345"),
+					Salutation:   apideckgo.String("Mr"),
+					State:        apideckgo.String("CA"),
+					StreetNumber: apideckgo.String("25"),
+					String:       apideckgo.String("25 Spring Street, Blackburn, VIC 3130"),
+					Type:         shared.TypePrimary.ToPointer(),
+					Website:      apideckgo.String("https://elonmusk.com"),
+				},
+			},
+			Anonymized: apideckgo.Bool(true),
+			ApplicationIds: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Applications: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Archived:      apideckgo.Bool(false),
+			Birthday:      types.MustDateFromString("2000-08-12"),
+			Confidential:  apideckgo.Bool(false),
+			CoordinatorID: apideckgo.String("12345"),
+			CoverLetter:   apideckgo.String("I submit this application to express my sincere interest in the API developer position. In the previous role, I was responsible for leadership and ..."),
+			CustomFields: []shared.CustomField{
+				shared.CustomField{
+					Description: apideckgo.String("Employee Level"),
+					ID:          "2389328923893298",
+					Name:        apideckgo.String("employee_level"),
+					Value: shared.CreateValueBoolean(
+						true,
+					),
+				},
+			},
+			Deleted: apideckgo.Bool(true),
+			Emails: []shared.Email{
+				shared.Email{
+					Email: "elon@musk.com",
+					ID:    apideckgo.String("123"),
+					Type:  shared.EmailTypePrimary.ToPointer(),
+				},
+			},
+			FirstName: apideckgo.String("Elon"),
+			Followers: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Headline:   apideckgo.String("PepsiCo, Inc, Central Perk"),
+			Initials:   apideckgo.String("EM"),
+			LastName:   apideckgo.String("Musk"),
+			MiddleName: apideckgo.String("D."),
+			Name:       apideckgo.String("Elon Musk"),
+			OwnerID:    apideckgo.String("54321"),
+			PhoneNumbers: []shared.PhoneNumber{
+				shared.PhoneNumber{
+					AreaCode:    apideckgo.String("323"),
+					CountryCode: apideckgo.String("1"),
+					Extension:   apideckgo.String("105"),
+					ID:          apideckgo.String("12345"),
+					Number:      "111-111-1111",
+					Type:        shared.PhoneNumberTypePrimary.ToPointer(),
+				},
+			},
+			PhotoURL:    apideckgo.String("https://unavatar.io/elon-musk"),
+			PositionID:  apideckgo.String("123"),
+			RecordURL:   apideckgo.String("https://app.intercom.io/contacts/12345"),
+			RecruiterID: apideckgo.String("12345"),
+			SocialLinks: []shared.SocialLinks{
+				shared.SocialLinks{
+					ID:   apideckgo.String("12345"),
+					Type: apideckgo.String("twitter"),
+					URL:  "https://www.twitter.com/apideck",
+				},
+			},
+			Sources: []string{
+				"Job site",
+			},
+			StageID: apideckgo.String("12345"),
+			Tags: []string{
+				"New",
+			},
+			Title: apideckgo.String("CEO"),
+			Websites: []shared.Websites{
+				shared.Websites{
+					ID:   apideckgo.String("12345"),
+					Type: shared.ApplicantTypePrimary.ToPointer(),
+					URL:  "http://example.com",
+				},
+			},
+		},
+		XApideckAppID:      "string",
+		XApideckConsumerID: "string",
+	}, operationSecurity)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.CreateApplicantResponse != nil {
+		// handle response
+	}
+}
+
+```
+
+## Per-Operation Security Schemes
+
+Some operations in your SDK require the security scheme to be specified at the request level. For example:
+
+```go
+package main
+
+import (
+	"context"
+	apideckgo "github.com/speakeasy-sdks/apideck-go"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
+	"github.com/speakeasy-sdks/apideck-go/pkg/types"
+	"log"
+)
+
+func main() {
+	s := apideckgo.New()
+
+	operationSecurity := operations.ApplicantsAddSecurity{
+		APIKey: "<your-apideck-api-key>",
+	}
+
+	ctx := context.Background()
+	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
+		Applicant: shared.ApplicantInput{
+			Addresses: []shared.Address{
+				shared.Address{
+					City:         apideckgo.String("San Francisco"),
+					ContactName:  apideckgo.String("Elon Musk"),
+					Country:      apideckgo.String("US"),
+					County:       apideckgo.String("Santa Clara"),
+					Email:        apideckgo.String("elon@musk.com"),
+					Fax:          apideckgo.String("122-111-1111"),
+					ID:           apideckgo.String("123"),
+					Latitude:     apideckgo.String("40.759211"),
+					Line1:        apideckgo.String("Main street"),
+					Line2:        apideckgo.String("apt #"),
+					Line3:        apideckgo.String("Suite #"),
+					Line4:        apideckgo.String("delivery instructions"),
+					Longitude:    apideckgo.String("-73.984638"),
+					Name:         apideckgo.String("HQ US"),
+					Notes:        apideckgo.String("Address notes or delivery instructions."),
+					PhoneNumber:  apideckgo.String("111-111-1111"),
+					PostalCode:   apideckgo.String("94104"),
+					RowVersion:   apideckgo.String("1-12345"),
+					Salutation:   apideckgo.String("Mr"),
+					State:        apideckgo.String("CA"),
+					StreetNumber: apideckgo.String("25"),
+					String:       apideckgo.String("25 Spring Street, Blackburn, VIC 3130"),
+					Type:         shared.TypePrimary.ToPointer(),
+					Website:      apideckgo.String("https://elonmusk.com"),
+				},
+			},
+			Anonymized: apideckgo.Bool(true),
+			ApplicationIds: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Applications: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Archived:      apideckgo.Bool(false),
+			Birthday:      types.MustDateFromString("2000-08-12"),
+			Confidential:  apideckgo.Bool(false),
+			CoordinatorID: apideckgo.String("12345"),
+			CoverLetter:   apideckgo.String("I submit this application to express my sincere interest in the API developer position. In the previous role, I was responsible for leadership and ..."),
+			CustomFields: []shared.CustomField{
+				shared.CustomField{
+					Description: apideckgo.String("Employee Level"),
+					ID:          "2389328923893298",
+					Name:        apideckgo.String("employee_level"),
+					Value: shared.CreateValueBoolean(
+						true,
+					),
+				},
+			},
+			Deleted: apideckgo.Bool(true),
+			Emails: []shared.Email{
+				shared.Email{
+					Email: "elon@musk.com",
+					ID:    apideckgo.String("123"),
+					Type:  shared.EmailTypePrimary.ToPointer(),
+				},
+			},
+			FirstName: apideckgo.String("Elon"),
+			Followers: []string{
+				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
+				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
+			},
+			Headline:   apideckgo.String("PepsiCo, Inc, Central Perk"),
+			Initials:   apideckgo.String("EM"),
+			LastName:   apideckgo.String("Musk"),
+			MiddleName: apideckgo.String("D."),
+			Name:       apideckgo.String("Elon Musk"),
+			OwnerID:    apideckgo.String("54321"),
+			PhoneNumbers: []shared.PhoneNumber{
+				shared.PhoneNumber{
+					AreaCode:    apideckgo.String("323"),
+					CountryCode: apideckgo.String("1"),
+					Extension:   apideckgo.String("105"),
+					ID:          apideckgo.String("12345"),
+					Number:      "111-111-1111",
+					Type:        shared.PhoneNumberTypePrimary.ToPointer(),
+				},
+			},
+			PhotoURL:    apideckgo.String("https://unavatar.io/elon-musk"),
+			PositionID:  apideckgo.String("123"),
+			RecordURL:   apideckgo.String("https://app.intercom.io/contacts/12345"),
+			RecruiterID: apideckgo.String("12345"),
+			SocialLinks: []shared.SocialLinks{
+				shared.SocialLinks{
+					ID:   apideckgo.String("12345"),
+					Type: apideckgo.String("twitter"),
+					URL:  "https://www.twitter.com/apideck",
+				},
+			},
+			Sources: []string{
+				"Job site",
+			},
+			StageID: apideckgo.String("12345"),
+			Tags: []string{
+				"New",
+			},
+			Title: apideckgo.String("CEO"),
+			Websites: []shared.Websites{
+				shared.Websites{
+					ID:   apideckgo.String("12345"),
+					Type: shared.ApplicantTypePrimary.ToPointer(),
+					URL:  "http://example.com",
+				},
+			},
+		},
+		XApideckAppID:      "string",
+		XApideckConsumerID: "string",
+	}, operationSecurity)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.CreateApplicantResponse != nil {
+		// handle response
+	}
+}
+
+```
+<!-- End Authentication -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

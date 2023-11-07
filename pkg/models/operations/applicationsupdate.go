@@ -20,7 +20,7 @@ func (o *ApplicationsUpdateSecurity) GetAPIKey() string {
 }
 
 type ApplicationsUpdateRequest struct {
-	ApplicationInput shared.ApplicationInput `request:"mediaType=application/json"`
+	Application shared.ApplicationInput `request:"mediaType=application/json"`
 	// ID of the record you are acting upon.
 	ID string `pathParam:"style=simple,explode=false,name=id"`
 	// Include raw response. Mostly used for debugging purposes
@@ -44,11 +44,11 @@ func (a *ApplicationsUpdateRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ApplicationsUpdateRequest) GetApplicationInput() shared.ApplicationInput {
+func (o *ApplicationsUpdateRequest) GetApplication() shared.ApplicationInput {
 	if o == nil {
 		return shared.ApplicationInput{}
 	}
-	return o.ApplicationInput
+	return o.Application
 }
 
 func (o *ApplicationsUpdateRequest) GetID() string {

@@ -1,5 +1,5 @@
-# AtsJobs
-(*Ats.Jobs*)
+# Jobs
+(*.Ats.Jobs*)
 
 ### Available Operations
 
@@ -26,7 +26,9 @@ func main() {
     s := apideckgo.New()
 
 
-    operationSecurity := "<your-apideck-api-key>"
+    operationSecurity := operations.JobsAllSecurity{
+            APIKey: "<your-apideck-api-key>",
+        }
 
     ctx := context.Background()
     res, err := s.Ats.Jobs.All(ctx, operations.JobsAllRequest{
@@ -80,7 +82,9 @@ func main() {
     s := apideckgo.New()
 
 
-    operationSecurity := "<your-apideck-api-key>"
+    operationSecurity := operations.JobsOneSecurity{
+            APIKey: "<your-apideck-api-key>",
+        }
 
     ctx := context.Background()
     res, err := s.Ats.Jobs.One(ctx, operations.JobsOneRequest{

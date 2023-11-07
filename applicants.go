@@ -15,23 +15,23 @@ import (
 	"strings"
 )
 
-type atsApplicants struct {
+type Applicants struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newAtsApplicants(sdkConfig sdkConfiguration) *atsApplicants {
-	return &atsApplicants{
+func newApplicants(sdkConfig sdkConfiguration) *Applicants {
+	return &Applicants{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // Add - Create Applicant
 // Create Applicant
-func (s *atsApplicants) Add(ctx context.Context, request operations.ApplicantsAddRequest, security operations.ApplicantsAddSecurity) (*operations.ApplicantsAddResponse, error) {
+func (s *Applicants) Add(ctx context.Context, request operations.ApplicantsAddRequest, security operations.ApplicantsAddSecurity) (*operations.ApplicantsAddResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/ats/applicants"
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "ApplicantInput", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Applicant", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
@@ -169,7 +169,7 @@ func (s *atsApplicants) Add(ctx context.Context, request operations.ApplicantsAd
 
 // All - List Applicants
 // List Applicants
-func (s *atsApplicants) All(ctx context.Context, request operations.ApplicantsAllRequest, security operations.ApplicantsAllSecurity) (*operations.ApplicantsAllResponse, error) {
+func (s *Applicants) All(ctx context.Context, request operations.ApplicantsAllRequest, security operations.ApplicantsAllSecurity) (*operations.ApplicantsAllResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/ats/applicants"
 
@@ -301,7 +301,7 @@ func (s *atsApplicants) All(ctx context.Context, request operations.ApplicantsAl
 
 // Delete Applicant
 // Delete Applicant
-func (s *atsApplicants) Delete(ctx context.Context, request operations.ApplicantsDeleteRequest, security operations.ApplicantsDeleteSecurity) (*operations.ApplicantsDeleteResponse, error) {
+func (s *Applicants) Delete(ctx context.Context, request operations.ApplicantsDeleteRequest, security operations.ApplicantsDeleteSecurity) (*operations.ApplicantsDeleteResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/ats/applicants/{id}", request, nil)
 	if err != nil {
@@ -436,7 +436,7 @@ func (s *atsApplicants) Delete(ctx context.Context, request operations.Applicant
 
 // One - Get Applicant
 // Get Applicant
-func (s *atsApplicants) One(ctx context.Context, request operations.ApplicantsOneRequest, security operations.ApplicantsOneSecurity) (*operations.ApplicantsOneResponse, error) {
+func (s *Applicants) One(ctx context.Context, request operations.ApplicantsOneRequest, security operations.ApplicantsOneSecurity) (*operations.ApplicantsOneResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/ats/applicants/{id}", request, nil)
 	if err != nil {
@@ -571,14 +571,14 @@ func (s *atsApplicants) One(ctx context.Context, request operations.ApplicantsOn
 
 // Update Applicant
 // Update Applicant
-func (s *atsApplicants) Update(ctx context.Context, request operations.ApplicantsUpdateRequest, security operations.ApplicantsUpdateSecurity) (*operations.ApplicantsUpdateResponse, error) {
+func (s *Applicants) Update(ctx context.Context, request operations.ApplicantsUpdateRequest, security operations.ApplicantsUpdateSecurity) (*operations.ApplicantsUpdateResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/ats/applicants/{id}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "ApplicantInput", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Applicant", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}

@@ -1,4 +1,4 @@
-# MetaCursors
+# Cursors
 
 Cursors to navigate to previous or next pages through the API
 

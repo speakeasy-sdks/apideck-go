@@ -15,19 +15,19 @@ import (
 	"strings"
 )
 
-type atsJobs struct {
+type Jobs struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newAtsJobs(sdkConfig sdkConfiguration) *atsJobs {
-	return &atsJobs{
+func newJobs(sdkConfig sdkConfiguration) *Jobs {
+	return &Jobs{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // All - List Jobs
 // List Jobs
-func (s *atsJobs) All(ctx context.Context, request operations.JobsAllRequest, security operations.JobsAllSecurity) (*operations.JobsAllResponse, error) {
+func (s *Jobs) All(ctx context.Context, request operations.JobsAllRequest, security operations.JobsAllSecurity) (*operations.JobsAllResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/ats/jobs"
 
@@ -159,7 +159,7 @@ func (s *atsJobs) All(ctx context.Context, request operations.JobsAllRequest, se
 
 // One - Get Job
 // Get Job
-func (s *atsJobs) One(ctx context.Context, request operations.JobsOneRequest, security operations.JobsOneSecurity) (*operations.JobsOneResponse, error) {
+func (s *Jobs) One(ctx context.Context, request operations.JobsOneRequest, security operations.JobsOneSecurity) (*operations.JobsOneResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/ats/jobs/{id}", request, nil)
 	if err != nil {

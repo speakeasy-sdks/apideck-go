@@ -15,23 +15,23 @@ import (
 	"strings"
 )
 
-type atsApplications struct {
+type Applications struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newAtsApplications(sdkConfig sdkConfiguration) *atsApplications {
-	return &atsApplications{
+func newApplications(sdkConfig sdkConfiguration) *Applications {
+	return &Applications{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // Add - Create Application
 // Create Application
-func (s *atsApplications) Add(ctx context.Context, request operations.ApplicationsAddRequest, security operations.ApplicationsAddSecurity) (*operations.ApplicationsAddResponse, error) {
+func (s *Applications) Add(ctx context.Context, request operations.ApplicationsAddRequest, security operations.ApplicationsAddSecurity) (*operations.ApplicationsAddResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/ats/applications"
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "ApplicationInput", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Application", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}
@@ -169,7 +169,7 @@ func (s *atsApplications) Add(ctx context.Context, request operations.Applicatio
 
 // All - List Applications
 // List Applications
-func (s *atsApplications) All(ctx context.Context, request operations.ApplicationsAllRequest, security operations.ApplicationsAllSecurity) (*operations.ApplicationsAllResponse, error) {
+func (s *Applications) All(ctx context.Context, request operations.ApplicationsAllRequest, security operations.ApplicationsAllSecurity) (*operations.ApplicationsAllResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/ats/applications"
 
@@ -301,7 +301,7 @@ func (s *atsApplications) All(ctx context.Context, request operations.Applicatio
 
 // Delete Application
 // Delete Application
-func (s *atsApplications) Delete(ctx context.Context, request operations.ApplicationsDeleteRequest, security operations.ApplicationsDeleteSecurity) (*operations.ApplicationsDeleteResponse, error) {
+func (s *Applications) Delete(ctx context.Context, request operations.ApplicationsDeleteRequest, security operations.ApplicationsDeleteSecurity) (*operations.ApplicationsDeleteResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/ats/applications/{id}", request, nil)
 	if err != nil {
@@ -436,7 +436,7 @@ func (s *atsApplications) Delete(ctx context.Context, request operations.Applica
 
 // One - Get Application
 // Get Application
-func (s *atsApplications) One(ctx context.Context, request operations.ApplicationsOneRequest, security operations.ApplicationsOneSecurity) (*operations.ApplicationsOneResponse, error) {
+func (s *Applications) One(ctx context.Context, request operations.ApplicationsOneRequest, security operations.ApplicationsOneSecurity) (*operations.ApplicationsOneResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/ats/applications/{id}", request, nil)
 	if err != nil {
@@ -571,14 +571,14 @@ func (s *atsApplications) One(ctx context.Context, request operations.Applicatio
 
 // Update Application
 // Update Application
-func (s *atsApplications) Update(ctx context.Context, request operations.ApplicationsUpdateRequest, security operations.ApplicationsUpdateSecurity) (*operations.ApplicationsUpdateResponse, error) {
+func (s *Applications) Update(ctx context.Context, request operations.ApplicationsUpdateRequest, security operations.ApplicationsUpdateSecurity) (*operations.ApplicationsUpdateResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/ats/applications/{id}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "ApplicationInput", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Application", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, fmt.Errorf("error serializing request body: %w", err)
 	}

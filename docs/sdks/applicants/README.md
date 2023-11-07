@@ -1,5 +1,5 @@
-# AtsApplicants
-(*Ats.Applicants*)
+# Applicants
+(*.Ats.Applicants*)
 
 ### Available Operations
 
@@ -31,11 +31,13 @@ func main() {
     s := apideckgo.New()
 
 
-    operationSecurity := "<your-apideck-api-key>"
+    operationSecurity := operations.ApplicantsAddSecurity{
+            APIKey: "<your-apideck-api-key>",
+        }
 
     ctx := context.Background()
     res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
-        ApplicantInput: shared.ApplicantInput{
+        Applicant: shared.ApplicantInput{
             Addresses: []shared.Address{
                 shared.Address{
                     City: apideckgo.String("San Francisco"),
@@ -60,7 +62,7 @@ func main() {
                     State: apideckgo.String("CA"),
                     StreetNumber: apideckgo.String("25"),
                     String: apideckgo.String("25 Spring Street, Blackburn, VIC 3130"),
-                    Type: shared.AddressTypePrimary.ToPointer(),
+                    Type: shared.TypePrimary.ToPointer(),
                     Website: apideckgo.String("https://elonmusk.com"),
                 },
             },
@@ -83,7 +85,7 @@ func main() {
                     Description: apideckgo.String("Employee Level"),
                     ID: "2389328923893298",
                     Name: apideckgo.String("employee_level"),
-                    Value: shared.CreateCustomFieldValueBoolean(
+                    Value: shared.CreateValueBoolean(
                     true,
                     ),
                 },
@@ -121,8 +123,8 @@ func main() {
             PositionID: apideckgo.String("123"),
             RecordURL: apideckgo.String("https://app.intercom.io/contacts/12345"),
             RecruiterID: apideckgo.String("12345"),
-            SocialLinks: []shared.ApplicantSocialLinks{
-                shared.ApplicantSocialLinks{
+            SocialLinks: []shared.SocialLinks{
+                shared.SocialLinks{
                     ID: apideckgo.String("12345"),
                     Type: apideckgo.String("twitter"),
                     URL: "https://www.twitter.com/apideck",
@@ -136,10 +138,10 @@ func main() {
                 "New",
             },
             Title: apideckgo.String("CEO"),
-            Websites: []shared.ApplicantWebsites{
-                shared.ApplicantWebsites{
+            Websites: []shared.Websites{
+                shared.Websites{
                     ID: apideckgo.String("12345"),
-                    Type: shared.ApplicantWebsitesTypePrimary.ToPointer(),
+                    Type: shared.ApplicantTypePrimary.ToPointer(),
                     URL: "http://example.com",
                 },
             },
@@ -192,7 +194,9 @@ func main() {
     s := apideckgo.New()
 
 
-    operationSecurity := "<your-apideck-api-key>"
+    operationSecurity := operations.ApplicantsAllSecurity{
+            APIKey: "<your-apideck-api-key>",
+        }
 
     ctx := context.Background()
     res, err := s.Ats.Applicants.All(ctx, operations.ApplicantsAllRequest{
@@ -249,7 +253,9 @@ func main() {
     s := apideckgo.New()
 
 
-    operationSecurity := "<your-apideck-api-key>"
+    operationSecurity := operations.ApplicantsDeleteSecurity{
+            APIKey: "<your-apideck-api-key>",
+        }
 
     ctx := context.Background()
     res, err := s.Ats.Applicants.Delete(ctx, operations.ApplicantsDeleteRequest{
@@ -301,7 +307,9 @@ func main() {
     s := apideckgo.New()
 
 
-    operationSecurity := "<your-apideck-api-key>"
+    operationSecurity := operations.ApplicantsOneSecurity{
+            APIKey: "<your-apideck-api-key>",
+        }
 
     ctx := context.Background()
     res, err := s.Ats.Applicants.One(ctx, operations.ApplicantsOneRequest{
@@ -355,11 +363,13 @@ func main() {
     s := apideckgo.New()
 
 
-    operationSecurity := "<your-apideck-api-key>"
+    operationSecurity := operations.ApplicantsUpdateSecurity{
+            APIKey: "<your-apideck-api-key>",
+        }
 
     ctx := context.Background()
     res, err := s.Ats.Applicants.Update(ctx, operations.ApplicantsUpdateRequest{
-        ApplicantInput: shared.ApplicantInput{
+        Applicant: shared.ApplicantInput{
             Addresses: []shared.Address{
                 shared.Address{
                     City: apideckgo.String("San Francisco"),
@@ -384,7 +394,7 @@ func main() {
                     State: apideckgo.String("CA"),
                     StreetNumber: apideckgo.String("25"),
                     String: apideckgo.String("25 Spring Street, Blackburn, VIC 3130"),
-                    Type: shared.AddressTypePrimary.ToPointer(),
+                    Type: shared.TypePrimary.ToPointer(),
                     Website: apideckgo.String("https://elonmusk.com"),
                 },
             },
@@ -407,7 +417,7 @@ func main() {
                     Description: apideckgo.String("Employee Level"),
                     ID: "2389328923893298",
                     Name: apideckgo.String("employee_level"),
-                    Value: shared.CreateCustomFieldValueBoolean(
+                    Value: shared.CreateValueBoolean(
                     true,
                     ),
                 },
@@ -445,8 +455,8 @@ func main() {
             PositionID: apideckgo.String("123"),
             RecordURL: apideckgo.String("https://app.intercom.io/contacts/12345"),
             RecruiterID: apideckgo.String("12345"),
-            SocialLinks: []shared.ApplicantSocialLinks{
-                shared.ApplicantSocialLinks{
+            SocialLinks: []shared.SocialLinks{
+                shared.SocialLinks{
                     ID: apideckgo.String("12345"),
                     Type: apideckgo.String("twitter"),
                     URL: "https://www.twitter.com/apideck",
@@ -460,10 +470,10 @@ func main() {
                 "New",
             },
             Title: apideckgo.String("CEO"),
-            Websites: []shared.ApplicantWebsites{
-                shared.ApplicantWebsites{
+            Websites: []shared.Websites{
+                shared.Websites{
                     ID: apideckgo.String("12345"),
-                    Type: shared.ApplicantWebsitesTypePrimary.ToPointer(),
+                    Type: shared.ApplicantTypePrimary.ToPointer(),
                     URL: "http://example.com",
                 },
             },

@@ -1,5 +1,5 @@
-# AtsApplications
-(*Ats.Applications*)
+# Applications
+(*.Ats.Applications*)
 
 ### Available Operations
 
@@ -30,18 +30,20 @@ func main() {
     s := apideckgo.New()
 
 
-    operationSecurity := "<your-apideck-api-key>"
+    operationSecurity := operations.ApplicationsAddSecurity{
+            APIKey: "<your-apideck-api-key>",
+        }
 
     ctx := context.Background()
     res, err := s.Ats.Applications.Add(ctx, operations.ApplicationsAddRequest{
-        ApplicationInput: shared.ApplicationInput{
+        Application: shared.ApplicationInput{
             ApplicantID: "12345",
             JobID: "12345",
-            Stage: &shared.ApplicationStage{
+            Stage: &shared.Stage{
                 ID: apideckgo.String("12345"),
                 Name: apideckgo.String("12345"),
             },
-            Status: shared.ApplicationStatusOpen.ToPointer(),
+            Status: shared.StatusOpen.ToPointer(),
         },
         XApideckAppID: "string",
         XApideckConsumerID: "string",
@@ -90,7 +92,9 @@ func main() {
     s := apideckgo.New()
 
 
-    operationSecurity := "<your-apideck-api-key>"
+    operationSecurity := operations.ApplicationsAllSecurity{
+            APIKey: "<your-apideck-api-key>",
+        }
 
     ctx := context.Background()
     res, err := s.Ats.Applications.All(ctx, operations.ApplicationsAllRequest{
@@ -144,7 +148,9 @@ func main() {
     s := apideckgo.New()
 
 
-    operationSecurity := "<your-apideck-api-key>"
+    operationSecurity := operations.ApplicationsDeleteSecurity{
+            APIKey: "<your-apideck-api-key>",
+        }
 
     ctx := context.Background()
     res, err := s.Ats.Applications.Delete(ctx, operations.ApplicationsDeleteRequest{
@@ -196,7 +202,9 @@ func main() {
     s := apideckgo.New()
 
 
-    operationSecurity := "<your-apideck-api-key>"
+    operationSecurity := operations.ApplicationsOneSecurity{
+            APIKey: "<your-apideck-api-key>",
+        }
 
     ctx := context.Background()
     res, err := s.Ats.Applications.One(ctx, operations.ApplicationsOneRequest{
@@ -249,18 +257,20 @@ func main() {
     s := apideckgo.New()
 
 
-    operationSecurity := "<your-apideck-api-key>"
+    operationSecurity := operations.ApplicationsUpdateSecurity{
+            APIKey: "<your-apideck-api-key>",
+        }
 
     ctx := context.Background()
     res, err := s.Ats.Applications.Update(ctx, operations.ApplicationsUpdateRequest{
-        ApplicationInput: shared.ApplicationInput{
+        Application: shared.ApplicationInput{
             ApplicantID: "12345",
             JobID: "12345",
-            Stage: &shared.ApplicationStage{
+            Stage: &shared.Stage{
                 ID: apideckgo.String("12345"),
                 Name: apideckgo.String("12345"),
             },
-            Status: shared.ApplicationStatusOpen.ToPointer(),
+            Status: shared.StatusOpen.ToPointer(),
         },
         ID: "<ID>",
         XApideckAppID: "string",

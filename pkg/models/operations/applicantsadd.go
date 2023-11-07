@@ -20,7 +20,7 @@ func (o *ApplicantsAddSecurity) GetAPIKey() string {
 }
 
 type ApplicantsAddRequest struct {
-	ApplicantInput shared.ApplicantInput `request:"mediaType=application/json"`
+	Applicant shared.ApplicantInput `request:"mediaType=application/json"`
 	// Include raw response. Mostly used for debugging purposes
 	Raw *bool `default:"false" queryParam:"style=form,explode=true,name=raw"`
 	// The ID of your Unify application
@@ -42,11 +42,11 @@ func (a *ApplicantsAddRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ApplicantsAddRequest) GetApplicantInput() shared.ApplicantInput {
+func (o *ApplicantsAddRequest) GetApplicant() shared.ApplicantInput {
 	if o == nil {
 		return shared.ApplicantInput{}
 	}
-	return o.ApplicantInput
+	return o.Applicant
 }
 
 func (o *ApplicantsAddRequest) GetRaw() *bool {

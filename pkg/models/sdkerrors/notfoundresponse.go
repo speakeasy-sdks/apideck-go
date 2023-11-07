@@ -8,68 +8,68 @@ import (
 	"github.com/speakeasy-sdks/apideck-go/pkg/utils"
 )
 
-// NotFoundResponseDetail2 - Contains parameter or domain specific information related to the error and why it occurred.
-type NotFoundResponseDetail2 struct {
+// Schemas2 - Contains parameter or domain specific information related to the error and why it occurred.
+type Schemas2 struct {
 }
 
-type NotFoundResponseDetailType string
+type SchemasDetailType string
 
 const (
-	NotFoundResponseDetailTypeStr                     NotFoundResponseDetailType = "str"
-	NotFoundResponseDetailTypeNotFoundResponseDetail2 NotFoundResponseDetailType = "NotFoundResponse_detail_2"
+	SchemasDetailTypeStr      SchemasDetailType = "str"
+	SchemasDetailTypeSchemas2 SchemasDetailType = "Schemas_2"
 )
 
-type NotFoundResponseDetail struct {
-	Str                     *string
-	NotFoundResponseDetail2 *NotFoundResponseDetail2
+type SchemasDetail struct {
+	Str      *string
+	Schemas2 *Schemas2
 
-	Type NotFoundResponseDetailType
+	Type SchemasDetailType
 }
 
-func CreateNotFoundResponseDetailStr(str string) NotFoundResponseDetail {
-	typ := NotFoundResponseDetailTypeStr
+func CreateSchemasDetailStr(str string) SchemasDetail {
+	typ := SchemasDetailTypeStr
 
-	return NotFoundResponseDetail{
+	return SchemasDetail{
 		Str:  &str,
 		Type: typ,
 	}
 }
 
-func CreateNotFoundResponseDetailNotFoundResponseDetail2(notFoundResponseDetail2 NotFoundResponseDetail2) NotFoundResponseDetail {
-	typ := NotFoundResponseDetailTypeNotFoundResponseDetail2
+func CreateSchemasDetailSchemas2(schemas2 Schemas2) SchemasDetail {
+	typ := SchemasDetailTypeSchemas2
 
-	return NotFoundResponseDetail{
-		NotFoundResponseDetail2: &notFoundResponseDetail2,
-		Type:                    typ,
+	return SchemasDetail{
+		Schemas2: &schemas2,
+		Type:     typ,
 	}
 }
 
-func (u *NotFoundResponseDetail) UnmarshalJSON(data []byte) error {
+func (u *SchemasDetail) UnmarshalJSON(data []byte) error {
 
-	notFoundResponseDetail2 := NotFoundResponseDetail2{}
-	if err := utils.UnmarshalJSON(data, &notFoundResponseDetail2, "", true, true); err == nil {
-		u.NotFoundResponseDetail2 = &notFoundResponseDetail2
-		u.Type = NotFoundResponseDetailTypeNotFoundResponseDetail2
+	schemas2 := Schemas2{}
+	if err := utils.UnmarshalJSON(data, &schemas2, "", true, true); err == nil {
+		u.Schemas2 = &schemas2
+		u.Type = SchemasDetailTypeSchemas2
 		return nil
 	}
 
 	str := ""
 	if err := utils.UnmarshalJSON(data, &str, "", true, true); err == nil {
 		u.Str = &str
-		u.Type = NotFoundResponseDetailTypeStr
+		u.Type = SchemasDetailTypeStr
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u NotFoundResponseDetail) MarshalJSON() ([]byte, error) {
+func (u SchemasDetail) MarshalJSON() ([]byte, error) {
 	if u.Str != nil {
 		return utils.MarshalJSON(u.Str, "", true)
 	}
 
-	if u.NotFoundResponseDetail2 != nil {
-		return utils.MarshalJSON(u.NotFoundResponseDetail2, "", true)
+	if u.Schemas2 != nil {
+		return utils.MarshalJSON(u.Schemas2, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
@@ -77,7 +77,7 @@ func (u NotFoundResponseDetail) MarshalJSON() ([]byte, error) {
 
 type NotFoundResponse struct {
 	// Contains parameter or domain specific information related to the error and why it occurred.
-	Detail *NotFoundResponseDetail `json:"detail,omitempty"`
+	Detail *SchemasDetail `json:"detail,omitempty"`
 	// Contains an explanation of the status_code as defined in HTTP/1.1 standard (RFC 7231)
 	Error_ *string `json:"error,omitempty"`
 	// A human-readable message providing more details about the error.

@@ -2,19 +2,19 @@
 
 package apideckgo
 
-type ats struct {
-	Applicants   *atsApplicants
-	Applications *atsApplications
-	Jobs         *atsJobs
+type Ats struct {
+	Applicants   *Applicants
+	Applications *Applications
+	Jobs         *Jobs
 
 	sdkConfiguration sdkConfiguration
 }
 
-func newAts(sdkConfig sdkConfiguration) *ats {
-	return &ats{
+func newAts(sdkConfig sdkConfiguration) *Ats {
+	return &Ats{
 		sdkConfiguration: sdkConfig,
-		Applicants:       newAtsApplicants(sdkConfig),
-		Applications:     newAtsApplications(sdkConfig),
-		Jobs:             newAtsJobs(sdkConfig),
+		Applicants:       newApplicants(sdkConfig),
+		Applications:     newApplications(sdkConfig),
+		Jobs:             newJobs(sdkConfig),
 	}
 }

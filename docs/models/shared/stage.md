@@ -1,4 +1,4 @@
-# ApplicationStage
+# Stage
 
 
 ## Fields

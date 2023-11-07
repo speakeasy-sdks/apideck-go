@@ -9,41 +9,41 @@ import (
 	"time"
 )
 
-type ApplicationStage struct {
+type Stage struct {
 	// Stage the candidate should be in. If omitted, the default stage for this job will be used.
 	ID   *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *ApplicationStage) GetID() *string {
+func (o *Stage) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *ApplicationStage) GetName() *string {
+func (o *Stage) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-type ApplicationStatus string
+type Status string
 
 const (
-	ApplicationStatusOpen      ApplicationStatus = "open"
-	ApplicationStatusRejected  ApplicationStatus = "rejected"
-	ApplicationStatusHired     ApplicationStatus = "hired"
-	ApplicationStatusConverted ApplicationStatus = "converted"
-	ApplicationStatusOther     ApplicationStatus = "other"
+	StatusOpen      Status = "open"
+	StatusRejected  Status = "rejected"
+	StatusHired     Status = "hired"
+	StatusConverted Status = "converted"
+	StatusOther     Status = "other"
 )
 
-func (e ApplicationStatus) ToPointer() *ApplicationStatus {
+func (e Status) ToPointer() *Status {
 	return &e
 }
 
-func (e *ApplicationStatus) UnmarshalJSON(data []byte) error {
+func (e *Status) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -58,18 +58,18 @@ func (e *ApplicationStatus) UnmarshalJSON(data []byte) error {
 	case "converted":
 		fallthrough
 	case "other":
-		*e = ApplicationStatus(v)
+		*e = Status(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ApplicationStatus: %v", v)
+		return fmt.Errorf("invalid value for Status: %v", v)
 	}
 }
 
 type ApplicationInput struct {
-	ApplicantID *string            `json:"applicant_id"`
-	JobID       *string            `json:"job_id"`
-	Stage       *ApplicationStage  `json:"stage,omitempty"`
-	Status      *ApplicationStatus `json:"status,omitempty"`
+	ApplicantID *string `json:"applicant_id"`
+	JobID       *string `json:"job_id"`
+	Stage       *Stage  `json:"stage,omitempty"`
+	Status      *Status `json:"status,omitempty"`
 }
 
 func (o *ApplicationInput) GetApplicantID() *string {
@@ -86,14 +86,14 @@ func (o *ApplicationInput) GetJobID() *string {
 	return o.JobID
 }
 
-func (o *ApplicationInput) GetStage() *ApplicationStage {
+func (o *ApplicationInput) GetStage() *Stage {
 	if o == nil {
 		return nil
 	}
 	return o.Stage
 }
 
-func (o *ApplicationInput) GetStatus() *ApplicationStatus {
+func (o *ApplicationInput) GetStatus() *Status {
 	if o == nil {
 		return nil
 	}
@@ -107,10 +107,10 @@ type Application struct {
 	// The user who created the object.
 	CreatedBy *string `json:"created_by,omitempty"`
 	// A unique identifier for an object.
-	ID     *string            `json:"id,omitempty"`
-	JobID  *string            `json:"job_id"`
-	Stage  *ApplicationStage  `json:"stage,omitempty"`
-	Status *ApplicationStatus `json:"status,omitempty"`
+	ID     *string `json:"id,omitempty"`
+	JobID  *string `json:"job_id"`
+	Stage  *Stage  `json:"stage,omitempty"`
+	Status *Status `json:"status,omitempty"`
 	// The date and time when the object was last updated.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	// The user who last updated the object.
@@ -163,14 +163,14 @@ func (o *Application) GetJobID() *string {
 	return o.JobID
 }
 
-func (o *Application) GetStage() *ApplicationStage {
+func (o *Application) GetStage() *Stage {
 	if o == nil {
 		return nil
 	}
 	return o.Stage
 }
 
-func (o *Application) GetStatus() *ApplicationStatus {
+func (o *Application) GetStatus() *Status {
 	if o == nil {
 		return nil
 	}

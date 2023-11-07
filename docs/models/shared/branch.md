@@ -1,4 +1,4 @@
-# JobBranch
+# Branch
 
 Details of the branch for which the job is created.
 

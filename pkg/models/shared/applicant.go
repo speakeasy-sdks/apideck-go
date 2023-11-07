@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-type ApplicantSocialLinks struct {
+type SocialLinks struct {
 	// Unique identifier of the social link
 	ID *string `json:"id,omitempty"`
 	// Type of the social link, e.g. twitter
@@ -19,43 +19,43 @@ type ApplicantSocialLinks struct {
 	URL string `json:"url"`
 }
 
-func (o *ApplicantSocialLinks) GetID() *string {
+func (o *SocialLinks) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *ApplicantSocialLinks) GetType() *string {
+func (o *SocialLinks) GetType() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *ApplicantSocialLinks) GetURL() string {
+func (o *SocialLinks) GetURL() string {
 	if o == nil {
 		return ""
 	}
 	return o.URL
 }
 
-// ApplicantWebsitesType - The type of website
-type ApplicantWebsitesType string
+// ApplicantType - The type of website
+type ApplicantType string
 
 const (
-	ApplicantWebsitesTypePrimary   ApplicantWebsitesType = "primary"
-	ApplicantWebsitesTypeSecondary ApplicantWebsitesType = "secondary"
-	ApplicantWebsitesTypeWork      ApplicantWebsitesType = "work"
-	ApplicantWebsitesTypePersonal  ApplicantWebsitesType = "personal"
-	ApplicantWebsitesTypeOther     ApplicantWebsitesType = "other"
+	ApplicantTypePrimary   ApplicantType = "primary"
+	ApplicantTypeSecondary ApplicantType = "secondary"
+	ApplicantTypeWork      ApplicantType = "work"
+	ApplicantTypePersonal  ApplicantType = "personal"
+	ApplicantTypeOther     ApplicantType = "other"
 )
 
-func (e ApplicantWebsitesType) ToPointer() *ApplicantWebsitesType {
+func (e ApplicantType) ToPointer() *ApplicantType {
 	return &e
 }
 
-func (e *ApplicantWebsitesType) UnmarshalJSON(data []byte) error {
+func (e *ApplicantType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -70,37 +70,37 @@ func (e *ApplicantWebsitesType) UnmarshalJSON(data []byte) error {
 	case "personal":
 		fallthrough
 	case "other":
-		*e = ApplicantWebsitesType(v)
+		*e = ApplicantType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ApplicantWebsitesType: %v", v)
+		return fmt.Errorf("invalid value for ApplicantType: %v", v)
 	}
 }
 
-type ApplicantWebsites struct {
+type Websites struct {
 	// Unique identifier for the website
 	ID *string `json:"id,omitempty"`
 	// The type of website
-	Type *ApplicantWebsitesType `json:"type,omitempty"`
+	Type *ApplicantType `json:"type,omitempty"`
 	// The website URL
 	URL string `json:"url"`
 }
 
-func (o *ApplicantWebsites) GetID() *string {
+func (o *Websites) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *ApplicantWebsites) GetType() *ApplicantWebsitesType {
+func (o *Websites) GetType() *ApplicantType {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *ApplicantWebsites) GetURL() string {
+func (o *Websites) GetURL() string {
 	if o == nil {
 		return ""
 	}
@@ -140,16 +140,16 @@ type ApplicantInput struct {
 	// The URL of the photo of a person.
 	PhotoURL *string `json:"photo_url,omitempty"`
 	// The PositionId the applicant applied for.
-	PositionID  *string                `json:"position_id,omitempty"`
-	RecordURL   *string                `json:"record_url,omitempty"`
-	RecruiterID *string                `json:"recruiter_id,omitempty"`
-	SocialLinks []ApplicantSocialLinks `json:"social_links,omitempty"`
-	Sources     []string               `json:"sources,omitempty"`
-	StageID     *string                `json:"stage_id,omitempty"`
-	Tags        []string               `json:"tags,omitempty"`
+	PositionID  *string       `json:"position_id,omitempty"`
+	RecordURL   *string       `json:"record_url,omitempty"`
+	RecruiterID *string       `json:"recruiter_id,omitempty"`
+	SocialLinks []SocialLinks `json:"social_links,omitempty"`
+	Sources     []string      `json:"sources,omitempty"`
+	StageID     *string       `json:"stage_id,omitempty"`
+	Tags        []string      `json:"tags,omitempty"`
 	// The job title of the person.
-	Title    *string             `json:"title,omitempty"`
-	Websites []ApplicantWebsites `json:"websites,omitempty"`
+	Title    *string    `json:"title,omitempty"`
+	Websites []Websites `json:"websites,omitempty"`
 }
 
 func (a ApplicantInput) MarshalJSON() ([]byte, error) {
@@ -338,7 +338,7 @@ func (o *ApplicantInput) GetRecruiterID() *string {
 	return o.RecruiterID
 }
 
-func (o *ApplicantInput) GetSocialLinks() []ApplicantSocialLinks {
+func (o *ApplicantInput) GetSocialLinks() []SocialLinks {
 	if o == nil {
 		return nil
 	}
@@ -373,7 +373,7 @@ func (o *ApplicantInput) GetTitle() *string {
 	return o.Title
 }
 
-func (o *ApplicantInput) GetWebsites() []ApplicantWebsites {
+func (o *ApplicantInput) GetWebsites() []Websites {
 	if o == nil {
 		return nil
 	}
@@ -426,23 +426,23 @@ type Applicant struct {
 	// The URL of the photo of a person.
 	PhotoURL *string `json:"photo_url,omitempty"`
 	// The PositionId the applicant applied for.
-	PositionID  *string                `json:"position_id,omitempty"`
-	RecordURL   *string                `json:"record_url,omitempty"`
-	RecruiterID *string                `json:"recruiter_id,omitempty"`
-	RejectedAt  *time.Time             `json:"rejected_at,omitempty"`
-	SocialLinks []ApplicantSocialLinks `json:"social_links,omitempty"`
-	SourceID    *string                `json:"source_id,omitempty"`
-	SourcedBy   *string                `json:"sourced_by,omitempty"`
-	Sources     []string               `json:"sources,omitempty"`
-	StageID     *string                `json:"stage_id,omitempty"`
-	Tags        []string               `json:"tags,omitempty"`
+	PositionID  *string       `json:"position_id,omitempty"`
+	RecordURL   *string       `json:"record_url,omitempty"`
+	RecruiterID *string       `json:"recruiter_id,omitempty"`
+	RejectedAt  *time.Time    `json:"rejected_at,omitempty"`
+	SocialLinks []SocialLinks `json:"social_links,omitempty"`
+	SourceID    *string       `json:"source_id,omitempty"`
+	SourcedBy   *string       `json:"sourced_by,omitempty"`
+	Sources     []string      `json:"sources,omitempty"`
+	StageID     *string       `json:"stage_id,omitempty"`
+	Tags        []string      `json:"tags,omitempty"`
 	// The job title of the person.
 	Title *string `json:"title,omitempty"`
 	// The date and time when the object was last updated.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	// The user who last updated the object.
-	UpdatedBy *string             `json:"updated_by,omitempty"`
-	Websites  []ApplicantWebsites `json:"websites,omitempty"`
+	UpdatedBy *string    `json:"updated_by,omitempty"`
+	Websites  []Websites `json:"websites,omitempty"`
 }
 
 func (a Applicant) MarshalJSON() ([]byte, error) {
@@ -694,7 +694,7 @@ func (o *Applicant) GetRejectedAt() *time.Time {
 	return o.RejectedAt
 }
 
-func (o *Applicant) GetSocialLinks() []ApplicantSocialLinks {
+func (o *Applicant) GetSocialLinks() []SocialLinks {
 	if o == nil {
 		return nil
 	}
@@ -757,7 +757,7 @@ func (o *Applicant) GetUpdatedBy() *string {
 	return o.UpdatedBy
 }
 
-func (o *Applicant) GetWebsites() []ApplicantWebsites {
+func (o *Applicant) GetWebsites() []Websites {
 	if o == nil {
 		return nil
 	}

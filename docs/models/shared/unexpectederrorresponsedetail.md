@@ -9,9 +9,9 @@
 unexpectedErrorResponseDetail := shared.CreateUnexpectedErrorResponseDetailStr(string{/* values here */})
 ```
 
-### UnexpectedErrorResponseDetail2
+### UnexpectedErrorResponse2
 
 ```go
-unexpectedErrorResponseDetail := shared.CreateUnexpectedErrorResponseDetailUnexpectedErrorResponseDetail2(shared.UnexpectedErrorResponseDetail2{/* values here */})
+unexpectedErrorResponseDetail := shared.CreateUnexpectedErrorResponseDetailUnexpectedErrorResponse2(shared.UnexpectedErrorResponse2{/* values here */})
 ```
 

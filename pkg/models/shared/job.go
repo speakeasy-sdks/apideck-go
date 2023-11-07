@@ -10,67 +10,67 @@ import (
 	"time"
 )
 
-type JobBlocks struct {
+type Blocks struct {
 	Content *string `json:"content,omitempty"`
 	Title   *string `json:"title,omitempty"`
 }
 
-func (o *JobBlocks) GetContent() *string {
+func (o *Blocks) GetContent() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Content
 }
 
-func (o *JobBlocks) GetTitle() *string {
+func (o *Blocks) GetTitle() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Title
 }
 
-// JobBranch - Details of the branch for which the job is created.
-type JobBranch struct {
+// Branch - Details of the branch for which the job is created.
+type Branch struct {
 	// A unique identifier for an object.
 	ID *string `json:"id,omitempty"`
 	// Name of the branch.
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *JobBranch) GetID() *string {
+func (o *Branch) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *JobBranch) GetName() *string {
+func (o *Branch) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-type JobEmploymentTerms string
+type EmploymentTerms string
 
 const (
-	JobEmploymentTermsFullTime   JobEmploymentTerms = "full-time"
-	JobEmploymentTermsPartTime   JobEmploymentTerms = "part-time"
-	JobEmploymentTermsInternship JobEmploymentTerms = "internship"
-	JobEmploymentTermsContractor JobEmploymentTerms = "contractor"
-	JobEmploymentTermsEmployee   JobEmploymentTerms = "employee"
-	JobEmploymentTermsFreelance  JobEmploymentTerms = "freelance"
-	JobEmploymentTermsTemp       JobEmploymentTerms = "temp"
-	JobEmploymentTermsSeasonal   JobEmploymentTerms = "seasonal"
-	JobEmploymentTermsVolunteer  JobEmploymentTerms = "volunteer"
-	JobEmploymentTermsOther      JobEmploymentTerms = "other"
+	EmploymentTermsFullTime   EmploymentTerms = "full-time"
+	EmploymentTermsPartTime   EmploymentTerms = "part-time"
+	EmploymentTermsInternship EmploymentTerms = "internship"
+	EmploymentTermsContractor EmploymentTerms = "contractor"
+	EmploymentTermsEmployee   EmploymentTerms = "employee"
+	EmploymentTermsFreelance  EmploymentTerms = "freelance"
+	EmploymentTermsTemp       EmploymentTerms = "temp"
+	EmploymentTermsSeasonal   EmploymentTerms = "seasonal"
+	EmploymentTermsVolunteer  EmploymentTerms = "volunteer"
+	EmploymentTermsOther      EmploymentTerms = "other"
 )
 
-func (e JobEmploymentTerms) ToPointer() *JobEmploymentTerms {
+func (e EmploymentTerms) ToPointer() *EmploymentTerms {
 	return &e
 }
 
-func (e *JobEmploymentTerms) UnmarshalJSON(data []byte) error {
+func (e *EmploymentTerms) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -95,25 +95,25 @@ func (e *JobEmploymentTerms) UnmarshalJSON(data []byte) error {
 	case "volunteer":
 		fallthrough
 	case "other":
-		*e = JobEmploymentTerms(v)
+		*e = EmploymentTerms(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for JobEmploymentTerms: %v", v)
+		return fmt.Errorf("invalid value for EmploymentTerms: %v", v)
 	}
 }
 
-type JobLinksType string
+type JobType string
 
 const (
-	JobLinksTypeJobPortal      JobLinksType = "job_portal"
-	JobLinksTypeJobDescription JobLinksType = "job_description"
+	JobTypeJobPortal      JobType = "job_portal"
+	JobTypeJobDescription JobType = "job_description"
 )
 
-func (e JobLinksType) ToPointer() *JobLinksType {
+func (e JobType) ToPointer() *JobType {
 	return &e
 }
 
-func (e *JobLinksType) UnmarshalJSON(data []byte) error {
+func (e *JobType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -122,19 +122,19 @@ func (e *JobLinksType) UnmarshalJSON(data []byte) error {
 	case "job_portal":
 		fallthrough
 	case "job_description":
-		*e = JobLinksType(v)
+		*e = JobType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for JobLinksType: %v", v)
+		return fmt.Errorf("invalid value for JobType: %v", v)
 	}
 }
 
 type JobLinks struct {
-	Type *JobLinksType `json:"type,omitempty"`
-	URL  *string       `json:"url,omitempty"`
+	Type *JobType `json:"type,omitempty"`
+	URL  *string  `json:"url,omitempty"`
 }
 
-func (o *JobLinks) GetType() *JobLinksType {
+func (o *JobLinks) GetType() *JobType {
 	if o == nil {
 		return nil
 	}
@@ -148,7 +148,7 @@ func (o *JobLinks) GetURL() *string {
 	return o.URL
 }
 
-type JobSalary struct {
+type Salary struct {
 	// Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).
 	Currency *Currency `json:"currency,omitempty"`
 	Interval *string   `json:"interval,omitempty"`
@@ -158,48 +158,48 @@ type JobSalary struct {
 	Min *int64 `json:"min,omitempty"`
 }
 
-func (o *JobSalary) GetCurrency() *Currency {
+func (o *Salary) GetCurrency() *Currency {
 	if o == nil {
 		return nil
 	}
 	return o.Currency
 }
 
-func (o *JobSalary) GetInterval() *string {
+func (o *Salary) GetInterval() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Interval
 }
 
-func (o *JobSalary) GetMax() *int64 {
+func (o *Salary) GetMax() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Max
 }
 
-func (o *JobSalary) GetMin() *int64 {
+func (o *Salary) GetMin() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Min
 }
 
-// JobVisibility - The visibility of the job
-type JobVisibility string
+// Visibility - The visibility of the job
+type Visibility string
 
 const (
-	JobVisibilityDraft    JobVisibility = "draft"
-	JobVisibilityPublic   JobVisibility = "public"
-	JobVisibilityInternal JobVisibility = "internal"
+	VisibilityDraft    Visibility = "draft"
+	VisibilityPublic   Visibility = "public"
+	VisibilityInternal Visibility = "internal"
 )
 
-func (e JobVisibility) ToPointer() *JobVisibility {
+func (e Visibility) ToPointer() *Visibility {
 	return &e
 }
 
-func (e *JobVisibility) UnmarshalJSON(data []byte) error {
+func (e *Visibility) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -210,20 +210,20 @@ func (e *JobVisibility) UnmarshalJSON(data []byte) error {
 	case "public":
 		fallthrough
 	case "internal":
-		*e = JobVisibility(v)
+		*e = Visibility(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for JobVisibility: %v", v)
+		return fmt.Errorf("invalid value for Visibility: %v", v)
 	}
 }
 
 type Job struct {
 	Addresses []Address `json:"addresses,omitempty"`
 	// Specifies whether an employee of the organization can apply for the job.
-	AvailableToEmployees *bool       `json:"available_to_employees,omitempty"`
-	Blocks               []JobBlocks `json:"blocks,omitempty"`
+	AvailableToEmployees *bool    `json:"available_to_employees,omitempty"`
+	Blocks               []Blocks `json:"blocks,omitempty"`
 	// Details of the branch for which the job is created.
-	Branch      *JobBranch  `json:"branch,omitempty"`
+	Branch      *Branch     `json:"branch,omitempty"`
 	Closing     *string     `json:"closing,omitempty"`
 	ClosingDate *types.Date `json:"closing_date,omitempty"`
 	// The closing section of the job description in HTML format
@@ -242,8 +242,8 @@ type Job struct {
 	// A description of the object.
 	Description *string `json:"description,omitempty"`
 	// The job description in HTML format
-	DescriptionHTML *string             `json:"description_html,omitempty"`
-	EmploymentTerms *JobEmploymentTerms `json:"employment_terms,omitempty"`
+	DescriptionHTML *string          `json:"description_html,omitempty"`
+	EmploymentTerms *EmploymentTerms `json:"employment_terms,omitempty"`
 	// Level of experience required for the job role.
 	Experience     *string  `json:"experience,omitempty"`
 	Followers      []string `json:"followers,omitempty"`
@@ -268,8 +268,8 @@ type Job struct {
 	// Specifies whether the posting is for a remote job.
 	Remote *bool `json:"remote,omitempty"`
 	// A job's Requisition ID (Req ID) allows your organization to identify and track a job based on alphanumeric naming conventions unique to your company's internal processes.
-	RequisitionID *string    `json:"requisition_id,omitempty"`
-	Salary        *JobSalary `json:"salary,omitempty"`
+	RequisitionID *string `json:"requisition_id,omitempty"`
+	Salary        *Salary `json:"salary,omitempty"`
 	// Sequence in relation to other jobs.
 	Sequence *int64  `json:"sequence,omitempty"`
 	Slug     *string `json:"slug,omitempty"`
@@ -287,7 +287,7 @@ type Job struct {
 	// Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
 	URL *string `json:"url,omitempty"`
 	// The visibility of the job
-	Visibility *JobVisibility `json:"visibility,omitempty"`
+	Visibility *Visibility `json:"visibility,omitempty"`
 }
 
 func (j Job) MarshalJSON() ([]byte, error) {
@@ -315,14 +315,14 @@ func (o *Job) GetAvailableToEmployees() *bool {
 	return o.AvailableToEmployees
 }
 
-func (o *Job) GetBlocks() []JobBlocks {
+func (o *Job) GetBlocks() []Blocks {
 	if o == nil {
 		return nil
 	}
 	return o.Blocks
 }
 
-func (o *Job) GetBranch() *JobBranch {
+func (o *Job) GetBranch() *Branch {
 	if o == nil {
 		return nil
 	}
@@ -413,7 +413,7 @@ func (o *Job) GetDescriptionHTML() *string {
 	return o.DescriptionHTML
 }
 
-func (o *Job) GetEmploymentTerms() *JobEmploymentTerms {
+func (o *Job) GetEmploymentTerms() *EmploymentTerms {
 	if o == nil {
 		return nil
 	}
@@ -518,7 +518,7 @@ func (o *Job) GetRequisitionID() *string {
 	return o.RequisitionID
 }
 
-func (o *Job) GetSalary() *JobSalary {
+func (o *Job) GetSalary() *Salary {
 	if o == nil {
 		return nil
 	}
@@ -581,7 +581,7 @@ func (o *Job) GetURL() *string {
 	return o.URL
 }
 
-func (o *Job) GetVisibility() *JobVisibility {
+func (o *Job) GetVisibility() *Visibility {
 	if o == nil {
 		return nil
 	}

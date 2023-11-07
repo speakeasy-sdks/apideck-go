@@ -7,20 +7,20 @@ import (
 	"github.com/speakeasy-sdks/apideck-go/pkg/utils"
 )
 
-// UnexpectedErrorResponseDetail2 - Contains parameter or domain specific information related to the error and why it occurred.
-type UnexpectedErrorResponseDetail2 struct {
+// UnexpectedErrorResponse2 - Contains parameter or domain specific information related to the error and why it occurred.
+type UnexpectedErrorResponse2 struct {
 }
 
 type UnexpectedErrorResponseDetailType string
 
 const (
-	UnexpectedErrorResponseDetailTypeStr                            UnexpectedErrorResponseDetailType = "str"
-	UnexpectedErrorResponseDetailTypeUnexpectedErrorResponseDetail2 UnexpectedErrorResponseDetailType = "UnexpectedErrorResponse_detail_2"
+	UnexpectedErrorResponseDetailTypeStr                      UnexpectedErrorResponseDetailType = "str"
+	UnexpectedErrorResponseDetailTypeUnexpectedErrorResponse2 UnexpectedErrorResponseDetailType = "UnexpectedErrorResponse_2"
 )
 
 type UnexpectedErrorResponseDetail struct {
-	Str                            *string
-	UnexpectedErrorResponseDetail2 *UnexpectedErrorResponseDetail2
+	Str                      *string
+	UnexpectedErrorResponse2 *UnexpectedErrorResponse2
 
 	Type UnexpectedErrorResponseDetailType
 }
@@ -34,21 +34,21 @@ func CreateUnexpectedErrorResponseDetailStr(str string) UnexpectedErrorResponseD
 	}
 }
 
-func CreateUnexpectedErrorResponseDetailUnexpectedErrorResponseDetail2(unexpectedErrorResponseDetail2 UnexpectedErrorResponseDetail2) UnexpectedErrorResponseDetail {
-	typ := UnexpectedErrorResponseDetailTypeUnexpectedErrorResponseDetail2
+func CreateUnexpectedErrorResponseDetailUnexpectedErrorResponse2(unexpectedErrorResponse2 UnexpectedErrorResponse2) UnexpectedErrorResponseDetail {
+	typ := UnexpectedErrorResponseDetailTypeUnexpectedErrorResponse2
 
 	return UnexpectedErrorResponseDetail{
-		UnexpectedErrorResponseDetail2: &unexpectedErrorResponseDetail2,
-		Type:                           typ,
+		UnexpectedErrorResponse2: &unexpectedErrorResponse2,
+		Type:                     typ,
 	}
 }
 
 func (u *UnexpectedErrorResponseDetail) UnmarshalJSON(data []byte) error {
 
-	unexpectedErrorResponseDetail2 := UnexpectedErrorResponseDetail2{}
-	if err := utils.UnmarshalJSON(data, &unexpectedErrorResponseDetail2, "", true, true); err == nil {
-		u.UnexpectedErrorResponseDetail2 = &unexpectedErrorResponseDetail2
-		u.Type = UnexpectedErrorResponseDetailTypeUnexpectedErrorResponseDetail2
+	unexpectedErrorResponse2 := UnexpectedErrorResponse2{}
+	if err := utils.UnmarshalJSON(data, &unexpectedErrorResponse2, "", true, true); err == nil {
+		u.UnexpectedErrorResponse2 = &unexpectedErrorResponse2
+		u.Type = UnexpectedErrorResponseDetailTypeUnexpectedErrorResponse2
 		return nil
 	}
 
@@ -67,8 +67,8 @@ func (u UnexpectedErrorResponseDetail) MarshalJSON() ([]byte, error) {
 		return utils.MarshalJSON(u.Str, "", true)
 	}
 
-	if u.UnexpectedErrorResponseDetail2 != nil {
-		return utils.MarshalJSON(u.UnexpectedErrorResponseDetail2, "", true)
+	if u.UnexpectedErrorResponse2 != nil {
+		return utils.MarshalJSON(u.UnexpectedErrorResponse2, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")

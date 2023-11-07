@@ -7,115 +7,115 @@ import (
 	"github.com/speakeasy-sdks/apideck-go/pkg/utils"
 )
 
-type CustomFieldValue4 struct {
+type Four struct {
 }
 
-type CustomFieldValueType string
+type ValueType string
 
 const (
-	CustomFieldValueTypeStr               CustomFieldValueType = "str"
-	CustomFieldValueTypeNumber            CustomFieldValueType = "number"
-	CustomFieldValueTypeBoolean           CustomFieldValueType = "boolean"
-	CustomFieldValueTypeCustomFieldValue4 CustomFieldValueType = "CustomField_value_4"
-	CustomFieldValueTypeArrayOfstr        CustomFieldValueType = "arrayOfstr"
+	ValueTypeStr        ValueType = "str"
+	ValueTypeNumber     ValueType = "number"
+	ValueTypeBoolean    ValueType = "boolean"
+	ValueTypeFour       ValueType = "4"
+	ValueTypeArrayOfstr ValueType = "arrayOfstr"
 )
 
-type CustomFieldValue struct {
-	Str               *string
-	Number            *float64
-	Boolean           *bool
-	CustomFieldValue4 *CustomFieldValue4
-	ArrayOfstr        []string
+type Value struct {
+	Str        *string
+	Number     *float64
+	Boolean    *bool
+	Four       *Four
+	ArrayOfstr []string
 
-	Type CustomFieldValueType
+	Type ValueType
 }
 
-func CreateCustomFieldValueStr(str string) CustomFieldValue {
-	typ := CustomFieldValueTypeStr
+func CreateValueStr(str string) Value {
+	typ := ValueTypeStr
 
-	return CustomFieldValue{
+	return Value{
 		Str:  &str,
 		Type: typ,
 	}
 }
 
-func CreateCustomFieldValueNumber(number float64) CustomFieldValue {
-	typ := CustomFieldValueTypeNumber
+func CreateValueNumber(number float64) Value {
+	typ := ValueTypeNumber
 
-	return CustomFieldValue{
+	return Value{
 		Number: &number,
 		Type:   typ,
 	}
 }
 
-func CreateCustomFieldValueBoolean(boolean bool) CustomFieldValue {
-	typ := CustomFieldValueTypeBoolean
+func CreateValueBoolean(boolean bool) Value {
+	typ := ValueTypeBoolean
 
-	return CustomFieldValue{
+	return Value{
 		Boolean: &boolean,
 		Type:    typ,
 	}
 }
 
-func CreateCustomFieldValueCustomFieldValue4(customFieldValue4 CustomFieldValue4) CustomFieldValue {
-	typ := CustomFieldValueTypeCustomFieldValue4
+func CreateValueFour(four Four) Value {
+	typ := ValueTypeFour
 
-	return CustomFieldValue{
-		CustomFieldValue4: &customFieldValue4,
-		Type:              typ,
+	return Value{
+		Four: &four,
+		Type: typ,
 	}
 }
 
-func CreateCustomFieldValueArrayOfstr(arrayOfstr []string) CustomFieldValue {
-	typ := CustomFieldValueTypeArrayOfstr
+func CreateValueArrayOfstr(arrayOfstr []string) Value {
+	typ := ValueTypeArrayOfstr
 
-	return CustomFieldValue{
+	return Value{
 		ArrayOfstr: arrayOfstr,
 		Type:       typ,
 	}
 }
 
-func (u *CustomFieldValue) UnmarshalJSON(data []byte) error {
+func (u *Value) UnmarshalJSON(data []byte) error {
 
-	customFieldValue4 := CustomFieldValue4{}
-	if err := utils.UnmarshalJSON(data, &customFieldValue4, "", true, true); err == nil {
-		u.CustomFieldValue4 = &customFieldValue4
-		u.Type = CustomFieldValueTypeCustomFieldValue4
+	four := Four{}
+	if err := utils.UnmarshalJSON(data, &four, "", true, true); err == nil {
+		u.Four = &four
+		u.Type = ValueTypeFour
 		return nil
 	}
 
 	str := ""
 	if err := utils.UnmarshalJSON(data, &str, "", true, true); err == nil {
 		u.Str = &str
-		u.Type = CustomFieldValueTypeStr
+		u.Type = ValueTypeStr
 		return nil
 	}
 
 	number := float64(0)
 	if err := utils.UnmarshalJSON(data, &number, "", true, true); err == nil {
 		u.Number = &number
-		u.Type = CustomFieldValueTypeNumber
+		u.Type = ValueTypeNumber
 		return nil
 	}
 
 	boolean := false
 	if err := utils.UnmarshalJSON(data, &boolean, "", true, true); err == nil {
 		u.Boolean = &boolean
-		u.Type = CustomFieldValueTypeBoolean
+		u.Type = ValueTypeBoolean
 		return nil
 	}
 
 	arrayOfstr := []string{}
 	if err := utils.UnmarshalJSON(data, &arrayOfstr, "", true, true); err == nil {
 		u.ArrayOfstr = arrayOfstr
-		u.Type = CustomFieldValueTypeArrayOfstr
+		u.Type = ValueTypeArrayOfstr
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u CustomFieldValue) MarshalJSON() ([]byte, error) {
+func (u Value) MarshalJSON() ([]byte, error) {
 	if u.Str != nil {
 		return utils.MarshalJSON(u.Str, "", true)
 	}
@@ -128,8 +128,8 @@ func (u CustomFieldValue) MarshalJSON() ([]byte, error) {
 		return utils.MarshalJSON(u.Boolean, "", true)
 	}
 
-	if u.CustomFieldValue4 != nil {
-		return utils.MarshalJSON(u.CustomFieldValue4, "", true)
+	if u.Four != nil {
+		return utils.MarshalJSON(u.Four, "", true)
 	}
 
 	if u.ArrayOfstr != nil {
@@ -145,8 +145,8 @@ type CustomField struct {
 	// Unique identifier for the custom field.
 	ID *string `json:"id"`
 	// Name of the custom field.
-	Name  *string           `json:"name,omitempty"`
-	Value *CustomFieldValue `json:"value,omitempty"`
+	Name  *string `json:"name,omitempty"`
+	Value *Value  `json:"value,omitempty"`
 }
 
 func (o *CustomField) GetDescription() *string {
@@ -170,7 +170,7 @@ func (o *CustomField) GetName() *string {
 	return o.Name
 }
 
-func (o *CustomField) GetValue() *CustomFieldValue {
+func (o *CustomField) GetValue() *Value {
 	if o == nil {
 		return nil
 	}

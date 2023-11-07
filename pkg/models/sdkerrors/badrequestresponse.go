@@ -8,68 +8,68 @@ import (
 	"github.com/speakeasy-sdks/apideck-go/pkg/utils"
 )
 
-// BadRequestResponseDetail2 - Contains parameter or domain specific information related to the error and why it occurred.
-type BadRequestResponseDetail2 struct {
+// Two - Contains parameter or domain specific information related to the error and why it occurred.
+type Two struct {
 }
 
-type BadRequestResponseDetailType string
+type DetailType string
 
 const (
-	BadRequestResponseDetailTypeStr                       BadRequestResponseDetailType = "str"
-	BadRequestResponseDetailTypeBadRequestResponseDetail2 BadRequestResponseDetailType = "BadRequestResponse_detail_2"
+	DetailTypeStr DetailType = "str"
+	DetailTypeTwo DetailType = "2"
 )
 
-type BadRequestResponseDetail struct {
-	Str                       *string
-	BadRequestResponseDetail2 *BadRequestResponseDetail2
+type Detail struct {
+	Str *string
+	Two *Two
 
-	Type BadRequestResponseDetailType
+	Type DetailType
 }
 
-func CreateBadRequestResponseDetailStr(str string) BadRequestResponseDetail {
-	typ := BadRequestResponseDetailTypeStr
+func CreateDetailStr(str string) Detail {
+	typ := DetailTypeStr
 
-	return BadRequestResponseDetail{
+	return Detail{
 		Str:  &str,
 		Type: typ,
 	}
 }
 
-func CreateBadRequestResponseDetailBadRequestResponseDetail2(badRequestResponseDetail2 BadRequestResponseDetail2) BadRequestResponseDetail {
-	typ := BadRequestResponseDetailTypeBadRequestResponseDetail2
+func CreateDetailTwo(two Two) Detail {
+	typ := DetailTypeTwo
 
-	return BadRequestResponseDetail{
-		BadRequestResponseDetail2: &badRequestResponseDetail2,
-		Type:                      typ,
+	return Detail{
+		Two:  &two,
+		Type: typ,
 	}
 }
 
-func (u *BadRequestResponseDetail) UnmarshalJSON(data []byte) error {
+func (u *Detail) UnmarshalJSON(data []byte) error {
 
-	badRequestResponseDetail2 := BadRequestResponseDetail2{}
-	if err := utils.UnmarshalJSON(data, &badRequestResponseDetail2, "", true, true); err == nil {
-		u.BadRequestResponseDetail2 = &badRequestResponseDetail2
-		u.Type = BadRequestResponseDetailTypeBadRequestResponseDetail2
+	two := Two{}
+	if err := utils.UnmarshalJSON(data, &two, "", true, true); err == nil {
+		u.Two = &two
+		u.Type = DetailTypeTwo
 		return nil
 	}
 
 	str := ""
 	if err := utils.UnmarshalJSON(data, &str, "", true, true); err == nil {
 		u.Str = &str
-		u.Type = BadRequestResponseDetailTypeStr
+		u.Type = DetailTypeStr
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u BadRequestResponseDetail) MarshalJSON() ([]byte, error) {
+func (u Detail) MarshalJSON() ([]byte, error) {
 	if u.Str != nil {
 		return utils.MarshalJSON(u.Str, "", true)
 	}
 
-	if u.BadRequestResponseDetail2 != nil {
-		return utils.MarshalJSON(u.BadRequestResponseDetail2, "", true)
+	if u.Two != nil {
+		return utils.MarshalJSON(u.Two, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
@@ -77,7 +77,7 @@ func (u BadRequestResponseDetail) MarshalJSON() ([]byte, error) {
 
 type BadRequestResponse struct {
 	// Contains parameter or domain specific information related to the error and why it occurred.
-	Detail *BadRequestResponseDetail `json:"detail,omitempty"`
+	Detail *Detail `json:"detail,omitempty"`
 	// Contains an explanation of the status_code as defined in HTTP/1.1 standard (RFC 7231)
 	Error_ *string `json:"error,omitempty"`
 	// A human-readable message providing more details about the error.

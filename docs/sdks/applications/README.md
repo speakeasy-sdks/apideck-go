@@ -1,5 +1,5 @@
 # Applications
-(*.Ats.Applications*)
+(*Ats.Applications*)
 
 ### Available Operations
 
@@ -60,17 +60,24 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.ApplicationsAddRequest](../../models/operations/applicationsaddrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.ApplicationsAddSecurity](../../models/operations/applicationsaddsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.ApplicationsAddRequest](../../pkg/models/operations/applicationsaddrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `security`                                                                                   | [operations.ApplicationsAddSecurity](../../pkg/models/operations/applicationsaddsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
 
 
 ### Response
 
-**[*operations.ApplicationsAddResponse](../../models/operations/applicationsaddresponse.md), error**
-
+**[*operations.ApplicationsAddResponse](../../pkg/models/operations/applicationsaddresponse.md), error**
+| Error Object                      | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| sdkerrors.BadRequestResponse      | 400                               | application/json                  |
+| sdkerrors.UnauthorizedResponse    | 401                               | application/json                  |
+| sdkerrors.PaymentRequiredResponse | 402                               | application/json                  |
+| sdkerrors.NotFoundResponse        | 404                               | application/json                  |
+| sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
+| sdkerrors.SDKError                | 400-600                           | */*                               |
 
 ## All
 
@@ -116,17 +123,24 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.ApplicationsAllRequest](../../models/operations/applicationsallrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.ApplicationsAllSecurity](../../models/operations/applicationsallsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.ApplicationsAllRequest](../../pkg/models/operations/applicationsallrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `security`                                                                                   | [operations.ApplicationsAllSecurity](../../pkg/models/operations/applicationsallsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
 
 
 ### Response
 
-**[*operations.ApplicationsAllResponse](../../models/operations/applicationsallresponse.md), error**
-
+**[*operations.ApplicationsAllResponse](../../pkg/models/operations/applicationsallresponse.md), error**
+| Error Object                      | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| sdkerrors.BadRequestResponse      | 400                               | application/json                  |
+| sdkerrors.UnauthorizedResponse    | 401                               | application/json                  |
+| sdkerrors.PaymentRequiredResponse | 402                               | application/json                  |
+| sdkerrors.NotFoundResponse        | 404                               | application/json                  |
+| sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
+| sdkerrors.SDKError                | 400-600                           | */*                               |
 
 ## Delete
 
@@ -170,17 +184,24 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.ApplicationsDeleteRequest](../../models/operations/applicationsdeleterequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.ApplicationsDeleteSecurity](../../models/operations/applicationsdeletesecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.ApplicationsDeleteRequest](../../pkg/models/operations/applicationsdeleterequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `security`                                                                                         | [operations.ApplicationsDeleteSecurity](../../pkg/models/operations/applicationsdeletesecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
 
 
 ### Response
 
-**[*operations.ApplicationsDeleteResponse](../../models/operations/applicationsdeleteresponse.md), error**
-
+**[*operations.ApplicationsDeleteResponse](../../pkg/models/operations/applicationsdeleteresponse.md), error**
+| Error Object                      | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| sdkerrors.BadRequestResponse      | 400                               | application/json                  |
+| sdkerrors.UnauthorizedResponse    | 401                               | application/json                  |
+| sdkerrors.PaymentRequiredResponse | 402                               | application/json                  |
+| sdkerrors.NotFoundResponse        | 404                               | application/json                  |
+| sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
+| sdkerrors.SDKError                | 400-600                           | */*                               |
 
 ## One
 
@@ -224,17 +245,24 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.ApplicationsOneRequest](../../models/operations/applicationsonerequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.ApplicationsOneSecurity](../../models/operations/applicationsonesecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.ApplicationsOneRequest](../../pkg/models/operations/applicationsonerequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `security`                                                                                   | [operations.ApplicationsOneSecurity](../../pkg/models/operations/applicationsonesecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
 
 
 ### Response
 
-**[*operations.ApplicationsOneResponse](../../models/operations/applicationsoneresponse.md), error**
-
+**[*operations.ApplicationsOneResponse](../../pkg/models/operations/applicationsoneresponse.md), error**
+| Error Object                      | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| sdkerrors.BadRequestResponse      | 400                               | application/json                  |
+| sdkerrors.UnauthorizedResponse    | 401                               | application/json                  |
+| sdkerrors.PaymentRequiredResponse | 402                               | application/json                  |
+| sdkerrors.NotFoundResponse        | 404                               | application/json                  |
+| sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
+| sdkerrors.SDKError                | 400-600                           | */*                               |
 
 ## Update
 
@@ -288,14 +316,21 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.ApplicationsUpdateRequest](../../models/operations/applicationsupdaterequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.ApplicationsUpdateSecurity](../../models/operations/applicationsupdatesecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.ApplicationsUpdateRequest](../../pkg/models/operations/applicationsupdaterequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `security`                                                                                         | [operations.ApplicationsUpdateSecurity](../../pkg/models/operations/applicationsupdatesecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
 
 
 ### Response
 
-**[*operations.ApplicationsUpdateResponse](../../models/operations/applicationsupdateresponse.md), error**
-
+**[*operations.ApplicationsUpdateResponse](../../pkg/models/operations/applicationsupdateresponse.md), error**
+| Error Object                      | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| sdkerrors.BadRequestResponse      | 400                               | application/json                  |
+| sdkerrors.UnauthorizedResponse    | 401                               | application/json                  |
+| sdkerrors.PaymentRequiredResponse | 402                               | application/json                  |
+| sdkerrors.NotFoundResponse        | 404                               | application/json                  |
+| sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
+| sdkerrors.SDKError                | 400-600                           | */*                               |

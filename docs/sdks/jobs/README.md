@@ -1,5 +1,5 @@
 # Jobs
-(*.Ats.Jobs*)
+(*Ats.Jobs*)
 
 ### Available Operations
 
@@ -50,17 +50,24 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
-| `request`                                                                | [operations.JobsAllRequest](../../models/operations/jobsallrequest.md)   | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `security`                                                               | [operations.JobsAllSecurity](../../models/operations/jobsallsecurity.md) | :heavy_check_mark:                                                       | The security requirements to use for the request.                        |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [operations.JobsAllRequest](../../pkg/models/operations/jobsallrequest.md)   | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `security`                                                                   | [operations.JobsAllSecurity](../../pkg/models/operations/jobsallsecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
 
 
 ### Response
 
-**[*operations.JobsAllResponse](../../models/operations/jobsallresponse.md), error**
-
+**[*operations.JobsAllResponse](../../pkg/models/operations/jobsallresponse.md), error**
+| Error Object                      | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| sdkerrors.BadRequestResponse      | 400                               | application/json                  |
+| sdkerrors.UnauthorizedResponse    | 401                               | application/json                  |
+| sdkerrors.PaymentRequiredResponse | 402                               | application/json                  |
+| sdkerrors.NotFoundResponse        | 404                               | application/json                  |
+| sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
+| sdkerrors.SDKError                | 400-600                           | */*                               |
 
 ## One
 
@@ -104,14 +111,21 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
-| `request`                                                                | [operations.JobsOneRequest](../../models/operations/jobsonerequest.md)   | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `security`                                                               | [operations.JobsOneSecurity](../../models/operations/jobsonesecurity.md) | :heavy_check_mark:                                                       | The security requirements to use for the request.                        |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [operations.JobsOneRequest](../../pkg/models/operations/jobsonerequest.md)   | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `security`                                                                   | [operations.JobsOneSecurity](../../pkg/models/operations/jobsonesecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
 
 
 ### Response
 
-**[*operations.JobsOneResponse](../../models/operations/jobsoneresponse.md), error**
-
+**[*operations.JobsOneResponse](../../pkg/models/operations/jobsoneresponse.md), error**
+| Error Object                      | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| sdkerrors.BadRequestResponse      | 400                               | application/json                  |
+| sdkerrors.UnauthorizedResponse    | 401                               | application/json                  |
+| sdkerrors.PaymentRequiredResponse | 402                               | application/json                  |
+| sdkerrors.NotFoundResponse        | 404                               | application/json                  |
+| sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
+| sdkerrors.SDKError                | 400-600                           | */*                               |

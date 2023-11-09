@@ -166,7 +166,7 @@ func main() {
 
 
 
-### [.Ats.Applicants](docs/sdks/applicants/README.md)
+### [Ats.Applicants](docs/sdks/applicants/README.md)
 
 * [Add](docs/sdks/applicants/README.md#add) - Create Applicant
 * [All](docs/sdks/applicants/README.md#all) - List Applicants
@@ -174,7 +174,7 @@ func main() {
 * [One](docs/sdks/applicants/README.md#one) - Get Applicant
 * [Update](docs/sdks/applicants/README.md#update) - Update Applicant
 
-### [.Ats.Applications](docs/sdks/applications/README.md)
+### [Ats.Applications](docs/sdks/applications/README.md)
 
 * [Add](docs/sdks/applications/README.md#add) - Create Application
 * [All](docs/sdks/applications/README.md#all) - List Applications
@@ -182,7 +182,7 @@ func main() {
 * [One](docs/sdks/applications/README.md#one) - Get Application
 * [Update](docs/sdks/applications/README.md#update) - Update Application
 
-### [.Ats.Jobs](docs/sdks/jobs/README.md)
+### [Ats.Jobs](docs/sdks/jobs/README.md)
 
 * [All](docs/sdks/jobs/README.md#all) - List Jobs
 * [One](docs/sdks/jobs/README.md#one) - Get Job
@@ -223,7 +223,16 @@ d6 := types.MustDateFromString("2019-01-01") // returns types.Date and panics on
 <!-- Start Error Handling -->
 # Error Handling
 
-Handling errors in your SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
+
+| Error Object                      | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| sdkerrors.BadRequestResponse      | 400                               | application/json                  |
+| sdkerrors.UnauthorizedResponse    | 401                               | application/json                  |
+| sdkerrors.PaymentRequiredResponse | 402                               | application/json                  |
+| sdkerrors.NotFoundResponse        | 404                               | application/json                  |
+| sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
+| sdkerrors.SDKError                | 400-600                           | */*                               |
 
 
 ## Example
@@ -393,6 +402,11 @@ func main() {
 			log.Fatal(e.Error())
 		}
 
+		var e *sdkerrors.SDKError
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
 	}
 }
 
@@ -746,12 +760,11 @@ This can be a convenient way to configure timeouts, cookies, proxies, custom hea
 
 
 <!-- Start Authentication -->
-
 # Authentication
 
 ## Per-Client Security Schemes
 
-Your SDK supports the following security scheme globally:
+This SDK supports the following security scheme globally:
 
 | Name     | Type     | Scheme   |
 | -------- | -------- | -------- |
@@ -905,7 +918,7 @@ func main() {
 
 ## Per-Operation Security Schemes
 
-Some operations in your SDK require the security scheme to be specified at the request level. For example:
+Some operations in this SDK require the security scheme to be specified at the request level. For example:
 
 ```go
 package main

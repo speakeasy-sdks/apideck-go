@@ -19,11 +19,11 @@ Create Application
 package main
 
 import(
-	"context"
-	"log"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"context"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
+	"log"
 )
 
 func main() {
@@ -89,10 +89,10 @@ List Applications
 package main
 
 import(
-	"context"
-	"log"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"context"
+	"log"
 )
 
 func main() {
@@ -152,10 +152,10 @@ Delete Application
 package main
 
 import(
-	"context"
-	"log"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"context"
+	"log"
 )
 
 func main() {
@@ -213,10 +213,10 @@ Get Application
 package main
 
 import(
-	"context"
-	"log"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"context"
+	"log"
 )
 
 func main() {
@@ -274,11 +274,11 @@ Update Application
 package main
 
 import(
-	"context"
-	"log"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"context"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
+	"log"
 )
 
 func main() {

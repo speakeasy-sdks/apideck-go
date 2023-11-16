@@ -16,10 +16,10 @@ List Jobs
 package main
 
 import(
-	"context"
-	"log"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"context"
+	"log"
 )
 
 func main() {
@@ -79,10 +79,10 @@ Get Job
 package main
 
 import(
-	"context"
-	"log"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"context"
+	"log"
 )
 
 func main() {

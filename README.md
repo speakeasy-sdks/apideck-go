@@ -16,6 +16,8 @@ go get github.com/speakeasy-sdks/apideck-go
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+### Example
+
 ```go
 package main
 
@@ -221,7 +223,7 @@ d6 := types.MustDateFromString("2019-01-01") // returns types.Date and panics on
 
 
 <!-- Start Error Handling -->
-# Error Handling
+## Error Handling
 
 Handling errors in this SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
 
@@ -234,16 +236,17 @@ Handling errors in this SDK should largely match your expectations.  All operati
 | sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
 | sdkerrors.SDKError                | 400-600                           | */*                               |
 
-
-## Example
+### Example
 
 ```go
 package main
 
 import (
 	"context"
+	"errors"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/sdkerrors"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
 	"github.com/speakeasy-sdks/apideck-go/pkg/types"
 	"log"
@@ -416,9 +419,9 @@ func main() {
 
 
 <!-- Start Server Selection -->
-# Server Selection
+## Server Selection
 
-## Select Server by Index
+### Select Server by Index
 
 You can override the default server globally using the `WithServerIndex` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
 
@@ -426,7 +429,7 @@ You can override the default server globally using the `WithServerIndex` option 
 | - | ------ | --------- |
 | 0 | `https://unify.apideck.com` | None |
 
-For example:
+#### Example
 
 ```go
 package main
@@ -575,10 +578,9 @@ func main() {
 ```
 
 
-## Override Server URL Per-Client
+### Override Server URL Per-Client
 
 The default server can also be overridden globally using the `WithServerURL` option when initializing the SDK client instance. For example:
-
 ```go
 package main
 
@@ -729,7 +731,7 @@ func main() {
 
 
 <!-- Start Custom HTTP Client -->
-# Custom HTTP Client
+## Custom HTTP Client
 
 The Go SDK makes API calls that wrap an internal HTTP client. The requirements for the HTTP client are very simple. It must match this interface:
 
@@ -760,9 +762,9 @@ This can be a convenient way to configure timeouts, cookies, proxies, custom hea
 
 
 <!-- Start Authentication -->
-# Authentication
+## Authentication
 
-## Per-Client Security Schemes
+### Per-Client Security Schemes
 
 This SDK supports the following security scheme globally:
 
@@ -771,7 +773,6 @@ This SDK supports the following security scheme globally:
 | `APIKey` | apiKey   | API key  |
 
 You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
-
 ```go
 package main
 
@@ -916,10 +917,9 @@ func main() {
 
 ```
 
-## Per-Operation Security Schemes
+### Per-Operation Security Schemes
 
 Some operations in this SDK require the security scheme to be specified at the request level. For example:
-
 ```go
 package main
 

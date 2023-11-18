@@ -1,5 +1,7 @@
 # UnauthorizedResponse
 
+Unauthorized
+
 
 ## Fields
 

@@ -104,8 +104,8 @@ docs/pkg/models/operations/jobsallresponse.md
 docs/pkg/models/operations/jobsonesecurity.md
 docs/pkg/models/operations/jobsonerequest.md
 docs/pkg/models/operations/jobsoneresponse.md
-docs/pkg/models/shared/unexpectederrorresponse2.md
-docs/pkg/models/shared/unexpectederrorresponsedetail.md
+docs/pkg/models/shared/two.md
+docs/pkg/models/shared/detail.md
 docs/pkg/models/shared/unexpectederrorresponse.md
 docs/pkg/models/shared/createapplicantresponse.md
 docs/pkg/models/shared/unifiedid.md

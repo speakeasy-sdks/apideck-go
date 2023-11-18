@@ -1,5 +1,7 @@
 # NotFoundResponse
 
+The specified resource was not found
+
 
 ## Fields
 

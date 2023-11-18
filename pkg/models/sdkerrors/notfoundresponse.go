@@ -75,6 +75,7 @@ func (u SchemasDetail) MarshalJSON() ([]byte, error) {
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
+// NotFoundResponse - The specified resource was not found
 type NotFoundResponse struct {
 	// Contains parameter or domain specific information related to the error and why it occurred.
 	Detail *SchemasDetail `json:"detail,omitempty"`

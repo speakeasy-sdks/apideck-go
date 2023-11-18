@@ -75,6 +75,7 @@ func (u Detail) MarshalJSON() ([]byte, error) {
 	return nil, errors.New("could not marshal union type: all fields are null")
 }
 
+// BadRequestResponse - Bad Request
 type BadRequestResponse struct {
 	// Contains parameter or domain specific information related to the error and why it occurred.
 	Detail *Detail `json:"detail,omitempty"`

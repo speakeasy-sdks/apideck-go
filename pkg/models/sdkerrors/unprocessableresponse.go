@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 )
 
+// UnprocessableResponse - Unprocessable
 type UnprocessableResponse struct {
 	// Contains parameter or domain specific information related to the error and why it occurred.
 	Detail *string `json:"detail,omitempty"`

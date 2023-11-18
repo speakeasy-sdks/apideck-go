@@ -1,5 +1,7 @@
 # PaymentRequiredResponse
 
+Payment Required
+
 
 ## Fields
 

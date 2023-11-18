@@ -7,68 +7,68 @@ import (
 	"github.com/speakeasy-sdks/apideck-go/pkg/utils"
 )
 
-// UnexpectedErrorResponse2 - Contains parameter or domain specific information related to the error and why it occurred.
-type UnexpectedErrorResponse2 struct {
+// Two - Contains parameter or domain specific information related to the error and why it occurred.
+type Two struct {
 }
 
-type UnexpectedErrorResponseDetailType string
+type DetailType string
 
 const (
-	UnexpectedErrorResponseDetailTypeStr                      UnexpectedErrorResponseDetailType = "str"
-	UnexpectedErrorResponseDetailTypeUnexpectedErrorResponse2 UnexpectedErrorResponseDetailType = "UnexpectedErrorResponse_2"
+	DetailTypeStr DetailType = "str"
+	DetailTypeTwo DetailType = "2"
 )
 
-type UnexpectedErrorResponseDetail struct {
-	Str                      *string
-	UnexpectedErrorResponse2 *UnexpectedErrorResponse2
+type Detail struct {
+	Str *string
+	Two *Two
 
-	Type UnexpectedErrorResponseDetailType
+	Type DetailType
 }
 
-func CreateUnexpectedErrorResponseDetailStr(str string) UnexpectedErrorResponseDetail {
-	typ := UnexpectedErrorResponseDetailTypeStr
+func CreateDetailStr(str string) Detail {
+	typ := DetailTypeStr
 
-	return UnexpectedErrorResponseDetail{
+	return Detail{
 		Str:  &str,
 		Type: typ,
 	}
 }
 
-func CreateUnexpectedErrorResponseDetailUnexpectedErrorResponse2(unexpectedErrorResponse2 UnexpectedErrorResponse2) UnexpectedErrorResponseDetail {
-	typ := UnexpectedErrorResponseDetailTypeUnexpectedErrorResponse2
+func CreateDetailTwo(two Two) Detail {
+	typ := DetailTypeTwo
 
-	return UnexpectedErrorResponseDetail{
-		UnexpectedErrorResponse2: &unexpectedErrorResponse2,
-		Type:                     typ,
+	return Detail{
+		Two:  &two,
+		Type: typ,
 	}
 }
 
-func (u *UnexpectedErrorResponseDetail) UnmarshalJSON(data []byte) error {
+func (u *Detail) UnmarshalJSON(data []byte) error {
 
-	unexpectedErrorResponse2 := UnexpectedErrorResponse2{}
-	if err := utils.UnmarshalJSON(data, &unexpectedErrorResponse2, "", true, true); err == nil {
-		u.UnexpectedErrorResponse2 = &unexpectedErrorResponse2
-		u.Type = UnexpectedErrorResponseDetailTypeUnexpectedErrorResponse2
+	two := Two{}
+	if err := utils.UnmarshalJSON(data, &two, "", true, true); err == nil {
+		u.Two = &two
+		u.Type = DetailTypeTwo
 		return nil
 	}
 
 	str := ""
 	if err := utils.UnmarshalJSON(data, &str, "", true, true); err == nil {
 		u.Str = &str
-		u.Type = UnexpectedErrorResponseDetailTypeStr
+		u.Type = DetailTypeStr
 		return nil
 	}
 
 	return errors.New("could not unmarshal into supported union types")
 }
 
-func (u UnexpectedErrorResponseDetail) MarshalJSON() ([]byte, error) {
+func (u Detail) MarshalJSON() ([]byte, error) {
 	if u.Str != nil {
 		return utils.MarshalJSON(u.Str, "", true)
 	}
 
-	if u.UnexpectedErrorResponse2 != nil {
-		return utils.MarshalJSON(u.UnexpectedErrorResponse2, "", true)
+	if u.Two != nil {
+		return utils.MarshalJSON(u.Two, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")
@@ -76,7 +76,7 @@ func (u UnexpectedErrorResponseDetail) MarshalJSON() ([]byte, error) {
 
 type UnexpectedErrorResponse struct {
 	// Contains parameter or domain specific information related to the error and why it occurred.
-	Detail *UnexpectedErrorResponseDetail `json:"detail,omitempty"`
+	Detail *Detail `json:"detail,omitempty"`
 	// Contains an explanation of the status_code as defined in HTTP/1.1 standard (RFC 7231)
 	Error *string `json:"error,omitempty"`
 	// A human-readable message providing more details about the error.
@@ -89,7 +89,7 @@ type UnexpectedErrorResponse struct {
 	TypeName *string `json:"type_name,omitempty"`
 }
 
-func (o *UnexpectedErrorResponse) GetDetail() *UnexpectedErrorResponseDetail {
+func (o *UnexpectedErrorResponse) GetDetail() *Detail {
 	if o == nil {
 		return nil
 	}

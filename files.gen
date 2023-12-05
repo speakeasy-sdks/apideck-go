@@ -67,7 +67,6 @@ pkg/utils/utils.go
 /pkg/models/sdkerrors/paymentrequiredresponse.go
 /pkg/models/sdkerrors/notfoundresponse.go
 /pkg/models/sdkerrors/unprocessableresponse.go
-USAGE.md
 docs/pkg/models/operations/applicantsaddsecurity.md
 docs/pkg/models/operations/applicantsaddrequest.md
 docs/pkg/models/operations/applicantsaddresponse.md
@@ -169,4 +168,5 @@ docs/sdks/ats/README.md
 docs/sdks/applicants/README.md
 docs/sdks/applications/README.md
 docs/sdks/jobs/README.md
+USAGE.md
 .gitattributes

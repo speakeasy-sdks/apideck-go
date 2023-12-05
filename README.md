@@ -6,16 +6,17 @@
     
 </div>
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ```bash
 go get github.com/speakeasy-sdks/apideck-go
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
+<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
-<!-- Start SDK Example Usage -->
+
 ### Example
 
 ```go
@@ -161,12 +162,10 @@ func main() {
 }
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
-
 
 ### [Ats.Applicants](docs/sdks/applicants/README.md)
 
@@ -188,22 +187,18 @@ func main() {
 
 * [All](docs/sdks/jobs/README.md#all) - List Jobs
 * [One](docs/sdks/jobs/README.md#one) - Get Job
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->
-
-<!-- Start Go Types -->
-# Special Types
+<!-- Start Special Types [types] -->
+## Special Types
 
 This SDK defines the following custom types to assist with marshalling and unmarshalling data.
 
-## Date
+### Date
 
 `types.Date` is a wrapper around time.Time that allows for JSON marshaling a date string formatted as "2006-01-02".
 
-### Usage
+#### Usage
 
 ```go
 d1 := types.NewDate(time.Now()) // returns *types.Date
@@ -218,11 +213,11 @@ d5 := types.MustNewDateFromString("2019-01-01") // returns *types.Date and panic
 
 d6 := types.MustDateFromString("2019-01-01") // returns types.Date and panics on error
 ```
-<!-- End Go Types -->
+<!-- End Special Types [types] -->
 
 
 
-<!-- Start Error Handling -->
+<!-- Start Error Handling [errors] -->
 ## Error Handling
 
 Handling errors in this SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
@@ -414,11 +409,11 @@ func main() {
 }
 
 ```
-<!-- End Error Handling -->
+<!-- End Error Handling [errors] -->
 
 
 
-<!-- Start Server Selection -->
+<!-- Start Server Selection [server] -->
 ## Server Selection
 
 ### Select Server by Index
@@ -726,11 +721,11 @@ func main() {
 }
 
 ```
-<!-- End Server Selection -->
+<!-- End Server Selection [server] -->
 
 
 
-<!-- Start Custom HTTP Client -->
+<!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
 
 The Go SDK makes API calls that wrap an internal HTTP client. The requirements for the HTTP client are very simple. It must match this interface:
@@ -757,11 +752,11 @@ var (
 ```
 
 This can be a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration.
-<!-- End Custom HTTP Client -->
+<!-- End Custom HTTP Client [http-client] -->
 
 
 
-<!-- Start Authentication -->
+<!-- Start Authentication [security] -->
 ## Authentication
 
 ### Per-Client Security Schemes
@@ -773,149 +768,7 @@ This SDK supports the following security scheme globally:
 | `APIKey` | apiKey   | API key  |
 
 You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
-```go
-package main
 
-import (
-	"context"
-	apideckgo "github.com/speakeasy-sdks/apideck-go"
-	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
-	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
-	"github.com/speakeasy-sdks/apideck-go/pkg/types"
-	"log"
-)
-
-func main() {
-	s := apideckgo.New()
-
-	operationSecurity := operations.ApplicantsAddSecurity{
-		APIKey: "<your-apideck-api-key>",
-	}
-
-	ctx := context.Background()
-	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
-		Applicant: shared.ApplicantInput{
-			Addresses: []shared.Address{
-				shared.Address{
-					City:         apideckgo.String("San Francisco"),
-					ContactName:  apideckgo.String("Elon Musk"),
-					Country:      apideckgo.String("US"),
-					County:       apideckgo.String("Santa Clara"),
-					Email:        apideckgo.String("elon@musk.com"),
-					Fax:          apideckgo.String("122-111-1111"),
-					ID:           apideckgo.String("123"),
-					Latitude:     apideckgo.String("40.759211"),
-					Line1:        apideckgo.String("Main street"),
-					Line2:        apideckgo.String("apt #"),
-					Line3:        apideckgo.String("Suite #"),
-					Line4:        apideckgo.String("delivery instructions"),
-					Longitude:    apideckgo.String("-73.984638"),
-					Name:         apideckgo.String("HQ US"),
-					Notes:        apideckgo.String("Address notes or delivery instructions."),
-					PhoneNumber:  apideckgo.String("111-111-1111"),
-					PostalCode:   apideckgo.String("94104"),
-					RowVersion:   apideckgo.String("1-12345"),
-					Salutation:   apideckgo.String("Mr"),
-					State:        apideckgo.String("CA"),
-					StreetNumber: apideckgo.String("25"),
-					String:       apideckgo.String("25 Spring Street, Blackburn, VIC 3130"),
-					Type:         shared.TypePrimary.ToPointer(),
-					Website:      apideckgo.String("https://elonmusk.com"),
-				},
-			},
-			Anonymized: apideckgo.Bool(true),
-			ApplicationIds: []string{
-				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
-				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
-			},
-			Applications: []string{
-				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
-				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
-			},
-			Archived:      apideckgo.Bool(false),
-			Birthday:      types.MustDateFromString("2000-08-12"),
-			Confidential:  apideckgo.Bool(false),
-			CoordinatorID: apideckgo.String("12345"),
-			CoverLetter:   apideckgo.String("I submit this application to express my sincere interest in the API developer position. In the previous role, I was responsible for leadership and ..."),
-			CustomFields: []shared.CustomField{
-				shared.CustomField{
-					Description: apideckgo.String("Employee Level"),
-					ID:          "2389328923893298",
-					Name:        apideckgo.String("employee_level"),
-					Value: shared.CreateValueBoolean(
-						true,
-					),
-				},
-			},
-			Deleted: apideckgo.Bool(true),
-			Emails: []shared.Email{
-				shared.Email{
-					Email: "elon@musk.com",
-					ID:    apideckgo.String("123"),
-					Type:  shared.EmailTypePrimary.ToPointer(),
-				},
-			},
-			FirstName: apideckgo.String("Elon"),
-			Followers: []string{
-				"a0d636c6-43b3-4bde-8c70-85b707d992f4",
-				"a98lfd96-43b3-4bde-8c70-85b707d992e6",
-			},
-			Headline:   apideckgo.String("PepsiCo, Inc, Central Perk"),
-			Initials:   apideckgo.String("EM"),
-			LastName:   apideckgo.String("Musk"),
-			MiddleName: apideckgo.String("D."),
-			Name:       apideckgo.String("Elon Musk"),
-			OwnerID:    apideckgo.String("54321"),
-			PhoneNumbers: []shared.PhoneNumber{
-				shared.PhoneNumber{
-					AreaCode:    apideckgo.String("323"),
-					CountryCode: apideckgo.String("1"),
-					Extension:   apideckgo.String("105"),
-					ID:          apideckgo.String("12345"),
-					Number:      "111-111-1111",
-					Type:        shared.PhoneNumberTypePrimary.ToPointer(),
-				},
-			},
-			PhotoURL:    apideckgo.String("https://unavatar.io/elon-musk"),
-			PositionID:  apideckgo.String("123"),
-			RecordURL:   apideckgo.String("https://app.intercom.io/contacts/12345"),
-			RecruiterID: apideckgo.String("12345"),
-			SocialLinks: []shared.SocialLinks{
-				shared.SocialLinks{
-					ID:   apideckgo.String("12345"),
-					Type: apideckgo.String("twitter"),
-					URL:  "https://www.twitter.com/apideck",
-				},
-			},
-			Sources: []string{
-				"Job site",
-			},
-			StageID: apideckgo.String("12345"),
-			Tags: []string{
-				"New",
-			},
-			Title: apideckgo.String("CEO"),
-			Websites: []shared.Websites{
-				shared.Websites{
-					ID:   apideckgo.String("12345"),
-					Type: shared.ApplicantTypePrimary.ToPointer(),
-					URL:  "http://example.com",
-				},
-			},
-		},
-		XApideckAppID:      "string",
-		XApideckConsumerID: "string",
-	}, operationSecurity)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	if res.CreateApplicantResponse != nil {
-		// handle response
-	}
-}
-
-```
 
 ### Per-Operation Security Schemes
 
@@ -1063,7 +916,7 @@ func main() {
 }
 
 ```
-<!-- End Authentication -->
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

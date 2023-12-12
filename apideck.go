@@ -372,7 +372,6 @@ func withSecurity(security interface{}) func(context.Context) (interface{}, erro
 }
 
 // WithSecurity configures the SDK to use the provided security details
-
 func WithSecurity(apiKey string) SDKOption {
 	return func(sdk *Apideck) {
 		security := shared.Security{APIKey: apiKey}
@@ -392,9 +391,9 @@ func New(opts ...SDKOption) *Apideck {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "9.9.2",
-			SDKVersion:        "0.8.3",
-			GenVersion:        "2.210.3",
-			UserAgent:         "speakeasy-sdk/go 0.8.3 2.210.3 9.9.2 github.com/speakeasy-sdks/apideck-go",
+			SDKVersion:        "0.9.0",
+			GenVersion:        "2.213.3",
+			UserAgent:         "speakeasy-sdk/go 0.9.0 2.213.3 9.9.2 github.com/speakeasy-sdks/apideck-go",
 		},
 	}
 	for _, opt := range opts {

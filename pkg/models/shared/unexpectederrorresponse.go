@@ -7,7 +7,6 @@ import (
 	"github.com/speakeasy-sdks/apideck-go/pkg/utils"
 )
 
-// Two - Contains parameter or domain specific information related to the error and why it occurred.
 type Two struct {
 }
 
@@ -18,6 +17,7 @@ const (
 	DetailTypeTwo DetailType = "2"
 )
 
+// Detail - Contains parameter or domain specific information related to the error and why it occurred.
 type Detail struct {
 	Str *string
 	Two *Two

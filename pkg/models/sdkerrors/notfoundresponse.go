@@ -8,7 +8,6 @@ import (
 	"github.com/speakeasy-sdks/apideck-go/pkg/utils"
 )
 
-// Schemas2 - Contains parameter or domain specific information related to the error and why it occurred.
 type Schemas2 struct {
 }
 
@@ -19,6 +18,7 @@ const (
 	SchemasDetailTypeSchemas2 SchemasDetailType = "Schemas_2"
 )
 
+// SchemasDetail - Contains parameter or domain specific information related to the error and why it occurred.
 type SchemasDetail struct {
 	Str      *string
 	Schemas2 *Schemas2

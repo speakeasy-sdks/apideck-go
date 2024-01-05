@@ -229,7 +229,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 | sdkerrors.PaymentRequiredResponse | 402                               | application/json                  |
 | sdkerrors.NotFoundResponse        | 404                               | application/json                  |
 | sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
-| sdkerrors.SDKError                | 400-600                           | */*                               |
+| sdkerrors.SDKError                | 4xx-5xx                           | */*                               |
 
 ### Example
 

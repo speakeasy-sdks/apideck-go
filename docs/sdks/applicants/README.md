@@ -178,7 +178,7 @@ func main() {
 | sdkerrors.PaymentRequiredResponse | 402                               | application/json                  |
 | sdkerrors.NotFoundResponse        | 404                               | application/json                  |
 | sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
-| sdkerrors.SDKError                | 400-600                           | */*                               |
+| sdkerrors.SDKError                | 4xx-5xx                           | */*                               |
 
 ## All
 
@@ -245,7 +245,7 @@ func main() {
 | sdkerrors.PaymentRequiredResponse | 402                               | application/json                  |
 | sdkerrors.NotFoundResponse        | 404                               | application/json                  |
 | sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
-| sdkerrors.SDKError                | 400-600                           | */*                               |
+| sdkerrors.SDKError                | 4xx-5xx                           | */*                               |
 
 ## Delete
 
@@ -306,7 +306,7 @@ func main() {
 | sdkerrors.PaymentRequiredResponse | 402                               | application/json                  |
 | sdkerrors.NotFoundResponse        | 404                               | application/json                  |
 | sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
-| sdkerrors.SDKError                | 400-600                           | */*                               |
+| sdkerrors.SDKError                | 4xx-5xx                           | */*                               |
 
 ## One
 
@@ -367,7 +367,7 @@ func main() {
 | sdkerrors.PaymentRequiredResponse | 402                               | application/json                  |
 | sdkerrors.NotFoundResponse        | 404                               | application/json                  |
 | sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
-| sdkerrors.SDKError                | 400-600                           | */*                               |
+| sdkerrors.SDKError                | 4xx-5xx                           | */*                               |
 
 ## Update
 
@@ -539,4 +539,4 @@ func main() {
 | sdkerrors.PaymentRequiredResponse | 402                               | application/json                  |
 | sdkerrors.NotFoundResponse        | 404                               | application/json                  |
 | sdkerrors.UnprocessableResponse   | 422                               | application/json                  |
-| sdkerrors.SDKError                | 400-600                           | */*                               |
+| sdkerrors.SDKError                | 4xx-5xx                           | */*                               |

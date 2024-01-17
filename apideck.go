@@ -391,9 +391,9 @@ func New(opts ...SDKOption) *Apideck {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "9.9.2",
-			SDKVersion:        "0.10.0",
-			GenVersion:        "2.225.2",
-			UserAgent:         "speakeasy-sdk/go 0.10.0 2.225.2 9.9.2 github.com/speakeasy-sdks/apideck-go",
+			SDKVersion:        "0.10.1",
+			GenVersion:        "2.234.3",
+			UserAgent:         "speakeasy-sdk/go 0.10.1 2.234.3 9.9.2 github.com/speakeasy-sdks/apideck-go",
 		},
 	}
 	for _, opt := range opts {

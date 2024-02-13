@@ -33,7 +33,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Ats.Jobs.All(ctx, operations.JobsAllRequest{
         PassThrough: map[string]interface{}{
-            "search": "string",
+            "search": "San Francisco",
         },
         XApideckAppID: "string",
         XApideckConsumerID: "string",

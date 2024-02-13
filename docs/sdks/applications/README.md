@@ -39,10 +39,6 @@ func main() {
         Application: shared.ApplicationInput{
             ApplicantID: "12345",
             JobID: "12345",
-            Stage: &shared.Stage{
-                ID: apideckgo.String("12345"),
-                Name: apideckgo.String("12345"),
-            },
             Status: shared.StatusOpen.ToPointer(),
         },
         XApideckAppID: "string",
@@ -106,7 +102,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Ats.Applications.All(ctx, operations.ApplicationsAllRequest{
         PassThrough: map[string]interface{}{
-            "search": "string",
+            "search": "San Francisco",
         },
         XApideckAppID: "string",
         XApideckConsumerID: "string",
@@ -294,10 +290,6 @@ func main() {
         Application: shared.ApplicationInput{
             ApplicantID: "12345",
             JobID: "12345",
-            Stage: &shared.Stage{
-                ID: apideckgo.String("12345"),
-                Name: apideckgo.String("12345"),
-            },
             Status: shared.StatusOpen.ToPointer(),
         },
         ID: "<ID>",

@@ -77,8 +77,8 @@ func main() {
             },
             Title: apideckgo.String("CEO"),
         },
-        XApideckAppID: "string",
-        XApideckConsumerID: "string",
+        XApideckAppID: "<value>",
+        XApideckConsumerID: "<value>",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -144,8 +144,8 @@ func main() {
         PassThrough: map[string]interface{}{
             "search": "San Francisco",
         },
-        XApideckAppID: "string",
-        XApideckConsumerID: "string",
+        XApideckAppID: "<value>",
+        XApideckConsumerID: "<value>",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -204,9 +204,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Ats.Applicants.Delete(ctx, operations.ApplicantsDeleteRequest{
-        ID: "<ID>",
-        XApideckAppID: "string",
-        XApideckConsumerID: "string",
+        ID: "<id>",
+        XApideckAppID: "<value>",
+        XApideckConsumerID: "<value>",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -265,9 +265,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Ats.Applicants.One(ctx, operations.ApplicantsOneRequest{
-        ID: "<ID>",
-        XApideckAppID: "string",
-        XApideckConsumerID: "string",
+        ID: "<id>",
+        XApideckAppID: "<value>",
+        XApideckConsumerID: "<value>",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -368,9 +368,9 @@ func main() {
             },
             Title: apideckgo.String("CEO"),
         },
-        ID: "<ID>",
-        XApideckAppID: "string",
-        XApideckConsumerID: "string",
+        ID: "<id>",
+        XApideckAppID: "<value>",
+        XApideckConsumerID: "<value>",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)

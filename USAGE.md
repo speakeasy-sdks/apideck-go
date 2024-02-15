@@ -60,8 +60,8 @@ func main() {
 			},
 			Title: apideckgo.String("CEO"),
 		},
-		XApideckAppID:      "string",
-		XApideckConsumerID: "string",
+		XApideckAppID:      "<value>",
+		XApideckConsumerID: "<value>",
 	}, operationSecurity)
 	if err != nil {
 		log.Fatal(err)

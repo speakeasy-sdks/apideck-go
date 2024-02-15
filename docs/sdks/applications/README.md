@@ -41,8 +41,8 @@ func main() {
             JobID: "12345",
             Status: shared.StatusOpen.ToPointer(),
         },
-        XApideckAppID: "string",
-        XApideckConsumerID: "string",
+        XApideckAppID: "<value>",
+        XApideckConsumerID: "<value>",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -104,8 +104,8 @@ func main() {
         PassThrough: map[string]interface{}{
             "search": "San Francisco",
         },
-        XApideckAppID: "string",
-        XApideckConsumerID: "string",
+        XApideckAppID: "<value>",
+        XApideckConsumerID: "<value>",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -164,9 +164,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Ats.Applications.Delete(ctx, operations.ApplicationsDeleteRequest{
-        ID: "<ID>",
-        XApideckAppID: "string",
-        XApideckConsumerID: "string",
+        ID: "<id>",
+        XApideckAppID: "<value>",
+        XApideckConsumerID: "<value>",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -225,9 +225,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Ats.Applications.One(ctx, operations.ApplicationsOneRequest{
-        ID: "<ID>",
-        XApideckAppID: "string",
-        XApideckConsumerID: "string",
+        ID: "<id>",
+        XApideckAppID: "<value>",
+        XApideckConsumerID: "<value>",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -292,9 +292,9 @@ func main() {
             JobID: "12345",
             Status: shared.StatusOpen.ToPointer(),
         },
-        ID: "<ID>",
-        XApideckAppID: "string",
-        XApideckConsumerID: "string",
+        ID: "<id>",
+        XApideckAppID: "<value>",
+        XApideckConsumerID: "<value>",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)

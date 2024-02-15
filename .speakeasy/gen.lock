@@ -4,9 +4,9 @@ management:
   docChecksum: d788c5f94d734dca4393cd302727404d
   docVersion: 9.9.2
   speakeasyVersion: internal
-  generationVersion: 2.253.0
-  releaseVersion: 0.11.1
-  configChecksum: 8d592fc6d950c8696bed4c7cd0752c01
+  generationVersion: 2.258.0
+  releaseVersion: 0.12.0
+  configChecksum: 6b671529f713de2a29d8032afd77a315
   repoURL: https://github.com/speakeasy-sdks/apideck-go.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/apideck-go
@@ -14,7 +14,7 @@ management:
 features:
   go:
     constsAndDefaults: 0.1.3
-    core: 3.3.2
+    core: 3.4.0
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.82.6
@@ -196,3 +196,4 @@ generatedFiles:
   - docs/sdks/jobs/README.md
   - USAGE.md
   - .gitattributes
+  - internal/hooks/hooks.go

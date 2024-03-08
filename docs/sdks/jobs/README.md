@@ -41,7 +41,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.GetJobsResponse != nil {
         // handle response
     }
@@ -102,7 +101,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.GetJobResponse != nil {
         // handle response
     }

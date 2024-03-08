@@ -83,7 +83,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.CreateApplicantResponse != nil {
         // handle response
     }
@@ -150,7 +149,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.GetApplicantsResponse != nil {
         // handle response
     }
@@ -211,7 +209,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.DeleteApplicantResponse != nil {
         // handle response
     }
@@ -272,7 +269,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.GetApplicantResponse != nil {
         // handle response
     }
@@ -375,7 +371,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.UpdateApplicantResponse != nil {
         // handle response
     }

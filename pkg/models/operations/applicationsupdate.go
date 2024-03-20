@@ -8,17 +8,6 @@ import (
 	"net/http"
 )
 
-type ApplicationsUpdateSecurity struct {
-	APIKey string `security:"scheme,type=apiKey,subtype=header,name=Authorization"`
-}
-
-func (o *ApplicationsUpdateSecurity) GetAPIKey() string {
-	if o == nil {
-		return ""
-	}
-	return o.APIKey
-}
-
 type ApplicationsUpdateRequest struct {
 	Application shared.ApplicationInput `request:"mediaType=application/json"`
 	// ID of the record you are acting upon.

@@ -19,20 +19,17 @@ Create Application
 package main
 
 import(
-	apideckgo "github.com/speakeasy-sdks/apideck-go"
-	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
+	apideckgo "github.com/speakeasy-sdks/apideck-go"
+	"context"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := apideckgo.New()
-
-
-    operationSecurity := operations.ApplicationsAddSecurity{
-            APIKey: "<your-apideck-api-key>",
-        }
+    s := apideckgo.New(
+        apideckgo.WithSecurity("<your-apideck-api-key>"),
+    )
 
     ctx := context.Background()
     res, err := s.Ats.Applications.Add(ctx, operations.ApplicationsAddRequest{
@@ -43,7 +40,7 @@ func main() {
         },
         XApideckAppID: "<value>",
         XApideckConsumerID: "<value>",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -55,11 +52,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.ApplicationsAddRequest](../../pkg/models/operations/applicationsaddrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.ApplicationsAddSecurity](../../pkg/models/operations/applicationsaddsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.ApplicationsAddRequest](../../pkg/models/operations/applicationsaddrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -84,19 +80,17 @@ List Applications
 package main
 
 import(
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
-	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 	"context"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := apideckgo.New()
-
-
-    operationSecurity := operations.ApplicationsAllSecurity{
-            APIKey: "<your-apideck-api-key>",
-        }
+    s := apideckgo.New(
+        apideckgo.WithSecurity("<your-apideck-api-key>"),
+    )
 
     ctx := context.Background()
     res, err := s.Ats.Applications.All(ctx, operations.ApplicationsAllRequest{
@@ -105,7 +99,7 @@ func main() {
         },
         XApideckAppID: "<value>",
         XApideckConsumerID: "<value>",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -117,11 +111,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.ApplicationsAllRequest](../../pkg/models/operations/applicationsallrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.ApplicationsAllSecurity](../../pkg/models/operations/applicationsallsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.ApplicationsAllRequest](../../pkg/models/operations/applicationsallrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -146,26 +139,24 @@ Delete Application
 package main
 
 import(
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
-	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 	"context"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := apideckgo.New()
-
-
-    operationSecurity := operations.ApplicationsDeleteSecurity{
-            APIKey: "<your-apideck-api-key>",
-        }
+    s := apideckgo.New(
+        apideckgo.WithSecurity("<your-apideck-api-key>"),
+    )
 
     ctx := context.Background()
     res, err := s.Ats.Applications.Delete(ctx, operations.ApplicationsDeleteRequest{
         ID: "<id>",
         XApideckAppID: "<value>",
         XApideckConsumerID: "<value>",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -177,11 +168,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
-| `request`                                                                                          | [operations.ApplicationsDeleteRequest](../../pkg/models/operations/applicationsdeleterequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.ApplicationsDeleteSecurity](../../pkg/models/operations/applicationsdeletesecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `request`                                                                                        | [operations.ApplicationsDeleteRequest](../../pkg/models/operations/applicationsdeleterequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
 
 
 ### Response
@@ -206,26 +196,24 @@ Get Application
 package main
 
 import(
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
-	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 	"context"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := apideckgo.New()
-
-
-    operationSecurity := operations.ApplicationsOneSecurity{
-            APIKey: "<your-apideck-api-key>",
-        }
+    s := apideckgo.New(
+        apideckgo.WithSecurity("<your-apideck-api-key>"),
+    )
 
     ctx := context.Background()
     res, err := s.Ats.Applications.One(ctx, operations.ApplicationsOneRequest{
         ID: "<id>",
         XApideckAppID: "<value>",
         XApideckConsumerID: "<value>",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -237,11 +225,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.ApplicationsOneRequest](../../pkg/models/operations/applicationsonerequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.ApplicationsOneSecurity](../../pkg/models/operations/applicationsonesecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.ApplicationsOneRequest](../../pkg/models/operations/applicationsonerequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -266,20 +253,17 @@ Update Application
 package main
 
 import(
-	apideckgo "github.com/speakeasy-sdks/apideck-go"
-	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
-	"context"
 	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
+	apideckgo "github.com/speakeasy-sdks/apideck-go"
+	"context"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := apideckgo.New()
-
-
-    operationSecurity := operations.ApplicationsUpdateSecurity{
-            APIKey: "<your-apideck-api-key>",
-        }
+    s := apideckgo.New(
+        apideckgo.WithSecurity("<your-apideck-api-key>"),
+    )
 
     ctx := context.Background()
     res, err := s.Ats.Applications.Update(ctx, operations.ApplicationsUpdateRequest{
@@ -291,7 +275,7 @@ func main() {
         ID: "<id>",
         XApideckAppID: "<value>",
         XApideckConsumerID: "<value>",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -303,11 +287,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
-| `request`                                                                                          | [operations.ApplicationsUpdateRequest](../../pkg/models/operations/applicationsupdaterequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.ApplicationsUpdateSecurity](../../pkg/models/operations/applicationsupdatesecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `request`                                                                                        | [operations.ApplicationsUpdateRequest](../../pkg/models/operations/applicationsupdaterequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
 
 
 ### Response

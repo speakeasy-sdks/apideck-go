@@ -8,17 +8,6 @@ import (
 	"net/http"
 )
 
-type ApplicantsAllSecurity struct {
-	APIKey string `security:"scheme,type=apiKey,subtype=header,name=Authorization"`
-}
-
-func (o *ApplicantsAllSecurity) GetAPIKey() string {
-	if o == nil {
-		return ""
-	}
-	return o.APIKey
-}
-
 type ApplicantsAllRequest struct {
 	// Cursor to start from. You can find cursors for next/previous pages in the meta.cursors property of the response.
 	Cursor *string `queryParam:"style=form,explode=true,name=cursor"`

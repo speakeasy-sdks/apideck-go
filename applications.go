@@ -28,11 +28,11 @@ func newApplications(sdkConfig sdkConfiguration) *Applications {
 
 // Add - Create Application
 // Create Application
-func (s *Applications) Add(ctx context.Context, request operations.ApplicationsAddRequest, security operations.ApplicationsAddSecurity) (*operations.ApplicationsAddResponse, error) {
+func (s *Applications) Add(ctx context.Context, request operations.ApplicationsAddRequest) (*operations.ApplicationsAddResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "applicationsAdd",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -60,7 +60,7 @@ func (s *Applications) Add(ctx context.Context, request operations.ApplicationsA
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -200,11 +200,11 @@ func (s *Applications) Add(ctx context.Context, request operations.ApplicationsA
 
 // All - List Applications
 // List Applications
-func (s *Applications) All(ctx context.Context, request operations.ApplicationsAllRequest, security operations.ApplicationsAllSecurity) (*operations.ApplicationsAllResponse, error) {
+func (s *Applications) All(ctx context.Context, request operations.ApplicationsAllRequest) (*operations.ApplicationsAllResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "applicationsAll",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -226,7 +226,7 @@ func (s *Applications) All(ctx context.Context, request operations.ApplicationsA
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -366,11 +366,11 @@ func (s *Applications) All(ctx context.Context, request operations.ApplicationsA
 
 // Delete Application
 // Delete Application
-func (s *Applications) Delete(ctx context.Context, request operations.ApplicationsDeleteRequest, security operations.ApplicationsDeleteSecurity) (*operations.ApplicationsDeleteResponse, error) {
+func (s *Applications) Delete(ctx context.Context, request operations.ApplicationsDeleteRequest) (*operations.ApplicationsDeleteResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "applicationsDelete",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -392,7 +392,7 @@ func (s *Applications) Delete(ctx context.Context, request operations.Applicatio
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -532,11 +532,11 @@ func (s *Applications) Delete(ctx context.Context, request operations.Applicatio
 
 // One - Get Application
 // Get Application
-func (s *Applications) One(ctx context.Context, request operations.ApplicationsOneRequest, security operations.ApplicationsOneSecurity) (*operations.ApplicationsOneResponse, error) {
+func (s *Applications) One(ctx context.Context, request operations.ApplicationsOneRequest) (*operations.ApplicationsOneResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "applicationsOne",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -558,7 +558,7 @@ func (s *Applications) One(ctx context.Context, request operations.ApplicationsO
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -698,11 +698,11 @@ func (s *Applications) One(ctx context.Context, request operations.ApplicationsO
 
 // Update Application
 // Update Application
-func (s *Applications) Update(ctx context.Context, request operations.ApplicationsUpdateRequest, security operations.ApplicationsUpdateSecurity) (*operations.ApplicationsUpdateResponse, error) {
+func (s *Applications) Update(ctx context.Context, request operations.ApplicationsUpdateRequest) (*operations.ApplicationsUpdateResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "applicationsUpdate",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -730,7 +730,7 @@ func (s *Applications) Update(ctx context.Context, request operations.Applicatio
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

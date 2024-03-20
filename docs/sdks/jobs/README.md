@@ -16,19 +16,17 @@ List Jobs
 package main
 
 import(
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
-	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 	"context"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := apideckgo.New()
-
-
-    operationSecurity := operations.JobsAllSecurity{
-            APIKey: "<your-apideck-api-key>",
-        }
+    s := apideckgo.New(
+        apideckgo.WithSecurity("<your-apideck-api-key>"),
+    )
 
     ctx := context.Background()
     res, err := s.Ats.Jobs.All(ctx, operations.JobsAllRequest{
@@ -37,7 +35,7 @@ func main() {
         },
         XApideckAppID: "<value>",
         XApideckConsumerID: "<value>",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -49,11 +47,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
-| `request`                                                                    | [operations.JobsAllRequest](../../pkg/models/operations/jobsallrequest.md)   | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `security`                                                                   | [operations.JobsAllSecurity](../../pkg/models/operations/jobsallsecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `ctx`                                                                      | [context.Context](https://pkg.go.dev/context#Context)                      | :heavy_check_mark:                                                         | The context to use for the request.                                        |
+| `request`                                                                  | [operations.JobsAllRequest](../../pkg/models/operations/jobsallrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
 
 
 ### Response
@@ -78,26 +75,24 @@ Get Job
 package main
 
 import(
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/shared"
 	apideckgo "github.com/speakeasy-sdks/apideck-go"
-	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 	"context"
+	"github.com/speakeasy-sdks/apideck-go/pkg/models/operations"
 	"log"
 )
 
 func main() {
-    s := apideckgo.New()
-
-
-    operationSecurity := operations.JobsOneSecurity{
-            APIKey: "<your-apideck-api-key>",
-        }
+    s := apideckgo.New(
+        apideckgo.WithSecurity("<your-apideck-api-key>"),
+    )
 
     ctx := context.Background()
     res, err := s.Ats.Jobs.One(ctx, operations.JobsOneRequest{
         ID: "<id>",
         XApideckAppID: "<value>",
         XApideckConsumerID: "<value>",
-    }, operationSecurity)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -109,11 +104,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
-| `request`                                                                    | [operations.JobsOneRequest](../../pkg/models/operations/jobsonerequest.md)   | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `security`                                                                   | [operations.JobsOneSecurity](../../pkg/models/operations/jobsonesecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `ctx`                                                                      | [context.Context](https://pkg.go.dev/context#Context)                      | :heavy_check_mark:                                                         | The context to use for the request.                                        |
+| `request`                                                                  | [operations.JobsOneRequest](../../pkg/models/operations/jobsonerequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
 
 
 ### Response

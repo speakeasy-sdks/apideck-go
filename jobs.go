@@ -28,11 +28,11 @@ func newJobs(sdkConfig sdkConfiguration) *Jobs {
 
 // All - List Jobs
 // List Jobs
-func (s *Jobs) All(ctx context.Context, request operations.JobsAllRequest, security operations.JobsAllSecurity) (*operations.JobsAllResponse, error) {
+func (s *Jobs) All(ctx context.Context, request operations.JobsAllRequest) (*operations.JobsAllResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "jobsAll",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -54,7 +54,7 @@ func (s *Jobs) All(ctx context.Context, request operations.JobsAllRequest, secur
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -194,11 +194,11 @@ func (s *Jobs) All(ctx context.Context, request operations.JobsAllRequest, secur
 
 // One - Get Job
 // Get Job
-func (s *Jobs) One(ctx context.Context, request operations.JobsOneRequest, security operations.JobsOneSecurity) (*operations.JobsOneResponse, error) {
+func (s *Jobs) One(ctx context.Context, request operations.JobsOneRequest) (*operations.JobsOneResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,
 		OperationID:    "jobsOne",
-		SecuritySource: withSecurity(security),
+		SecuritySource: s.sdkConfiguration.Security,
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
@@ -220,7 +220,7 @@ func (s *Jobs) One(ctx context.Context, request operations.JobsOneRequest, secur
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, withSecurity(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 

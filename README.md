@@ -32,11 +32,9 @@ import (
 )
 
 func main() {
-	s := apideckgo.New()
-
-	operationSecurity := operations.ApplicantsAddSecurity{
-		APIKey: "<your-apideck-api-key>",
-	}
+	s := apideckgo.New(
+		apideckgo.WithSecurity("<your-apideck-api-key>"),
+	)
 
 	ctx := context.Background()
 	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
@@ -82,7 +80,7 @@ func main() {
 		},
 		XApideckAppID:      "<value>",
 		XApideckConsumerID: "<value>",
-	}, operationSecurity)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -178,11 +176,9 @@ import (
 )
 
 func main() {
-	s := apideckgo.New()
-
-	operationSecurity := operations.ApplicantsAddSecurity{
-		APIKey: "<your-apideck-api-key>",
-	}
+	s := apideckgo.New(
+		apideckgo.WithSecurity("<your-apideck-api-key>"),
+	)
 
 	ctx := context.Background()
 	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
@@ -228,7 +224,7 @@ func main() {
 		},
 		XApideckAppID:      "<value>",
 		XApideckConsumerID: "<value>",
-	}, operationSecurity)
+	})
 	if err != nil {
 
 		var e *sdkerrors.BadRequestResponse
@@ -302,11 +298,8 @@ import (
 func main() {
 	s := apideckgo.New(
 		apideckgo.WithServerIndex(0),
+		apideckgo.WithSecurity("<your-apideck-api-key>"),
 	)
-
-	operationSecurity := operations.ApplicantsAddSecurity{
-		APIKey: "<your-apideck-api-key>",
-	}
 
 	ctx := context.Background()
 	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
@@ -352,7 +345,7 @@ func main() {
 		},
 		XApideckAppID:      "<value>",
 		XApideckConsumerID: "<value>",
-	}, operationSecurity)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -382,11 +375,8 @@ import (
 func main() {
 	s := apideckgo.New(
 		apideckgo.WithServerURL("https://unify.apideck.com"),
+		apideckgo.WithSecurity("<your-apideck-api-key>"),
 	)
-
-	operationSecurity := operations.ApplicantsAddSecurity{
-		APIKey: "<your-apideck-api-key>",
-	}
 
 	ctx := context.Background()
 	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
@@ -432,7 +422,7 @@ func main() {
 		},
 		XApideckAppID:      "<value>",
 		XApideckConsumerID: "<value>",
-	}, operationSecurity)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -489,11 +479,6 @@ This SDK supports the following security scheme globally:
 | `APIKey` | apiKey   | API key  |
 
 You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
-
-
-### Per-Operation Security Schemes
-
-Some operations in this SDK require the security scheme to be specified at the request level. For example:
 ```go
 package main
 
@@ -507,11 +492,9 @@ import (
 )
 
 func main() {
-	s := apideckgo.New()
-
-	operationSecurity := operations.ApplicantsAddSecurity{
-		APIKey: "<your-apideck-api-key>",
-	}
+	s := apideckgo.New(
+		apideckgo.WithSecurity("<your-apideck-api-key>"),
+	)
 
 	ctx := context.Background()
 	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
@@ -557,7 +540,7 @@ func main() {
 		},
 		XApideckAppID:      "<value>",
 		XApideckConsumerID: "<value>",
-	}, operationSecurity)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}

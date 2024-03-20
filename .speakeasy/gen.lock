@@ -3,10 +3,10 @@ id: 89a7f9cb-825d-4a6d-965e-db04d38f1310
 management:
   docChecksum: d788c5f94d734dca4393cd302727404d
   docVersion: 9.9.2
-  speakeasyVersion: 1.207.1
-  generationVersion: 2.280.6
-  releaseVersion: 0.13.1
-  configChecksum: 59bb5719bf2a8baa0d489136986d7ca0
+  speakeasyVersion: 1.213.0
+  generationVersion: 2.283.1
+  releaseVersion: 0.14.0
+  configChecksum: e252a148ce33535d92d0edfafe33e702
   repoURL: https://github.com/speakeasy-sdks/apideck-go.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/apideck-go
@@ -17,11 +17,10 @@ features:
     core: 3.4.4
     deprecations: 2.81.1
     examples: 2.81.3
-    globalSecurity: 2.82.8
+    globalSecurity: 2.82.9
     globalServerURLs: 2.82.2
     groups: 2.81.2
     inputOutputModels: 2.83.0
-    methodSecurity: 2.82.2
     nameOverrides: 2.81.1
     responseFormat: 0.1.0
     unions: 2.85.4
@@ -93,40 +92,28 @@ generatedFiles:
   - /pkg/models/sdkerrors/paymentrequiredresponse.go
   - /pkg/models/sdkerrors/notfoundresponse.go
   - /pkg/models/sdkerrors/unprocessableresponse.go
-  - docs/pkg/models/operations/applicantsaddsecurity.md
   - docs/pkg/models/operations/applicantsaddrequest.md
   - docs/pkg/models/operations/applicantsaddresponse.md
-  - docs/pkg/models/operations/applicantsallsecurity.md
   - docs/pkg/models/operations/applicantsallrequest.md
   - docs/pkg/models/operations/applicantsallresponse.md
-  - docs/pkg/models/operations/applicantsdeletesecurity.md
   - docs/pkg/models/operations/applicantsdeleterequest.md
   - docs/pkg/models/operations/applicantsdeleteresponse.md
-  - docs/pkg/models/operations/applicantsonesecurity.md
   - docs/pkg/models/operations/applicantsonerequest.md
   - docs/pkg/models/operations/applicantsoneresponse.md
-  - docs/pkg/models/operations/applicantsupdatesecurity.md
   - docs/pkg/models/operations/applicantsupdaterequest.md
   - docs/pkg/models/operations/applicantsupdateresponse.md
-  - docs/pkg/models/operations/applicationsaddsecurity.md
   - docs/pkg/models/operations/applicationsaddrequest.md
   - docs/pkg/models/operations/applicationsaddresponse.md
-  - docs/pkg/models/operations/applicationsallsecurity.md
   - docs/pkg/models/operations/applicationsallrequest.md
   - docs/pkg/models/operations/applicationsallresponse.md
-  - docs/pkg/models/operations/applicationsdeletesecurity.md
   - docs/pkg/models/operations/applicationsdeleterequest.md
   - docs/pkg/models/operations/applicationsdeleteresponse.md
-  - docs/pkg/models/operations/applicationsonesecurity.md
   - docs/pkg/models/operations/applicationsonerequest.md
   - docs/pkg/models/operations/applicationsoneresponse.md
-  - docs/pkg/models/operations/applicationsupdatesecurity.md
   - docs/pkg/models/operations/applicationsupdaterequest.md
   - docs/pkg/models/operations/applicationsupdateresponse.md
-  - docs/pkg/models/operations/jobsallsecurity.md
   - docs/pkg/models/operations/jobsallrequest.md
   - docs/pkg/models/operations/jobsallresponse.md
-  - docs/pkg/models/operations/jobsonesecurity.md
   - docs/pkg/models/operations/jobsonerequest.md
   - docs/pkg/models/operations/jobsoneresponse.md
   - docs/pkg/models/shared/two.md

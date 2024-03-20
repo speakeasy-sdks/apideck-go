@@ -8,17 +8,6 @@ import (
 	"net/http"
 )
 
-type ApplicationsAddSecurity struct {
-	APIKey string `security:"scheme,type=apiKey,subtype=header,name=Authorization"`
-}
-
-func (o *ApplicationsAddSecurity) GetAPIKey() string {
-	if o == nil {
-		return ""
-	}
-	return o.APIKey
-}
-
 type ApplicationsAddRequest struct {
 	Application shared.ApplicationInput `request:"mediaType=application/json"`
 	// Include raw response. Mostly used for debugging purposes

@@ -12,11 +12,9 @@ import (
 )
 
 func main() {
-	s := apideckgo.New()
-
-	operationSecurity := operations.ApplicantsAddSecurity{
-		APIKey: "<your-apideck-api-key>",
-	}
+	s := apideckgo.New(
+		apideckgo.WithSecurity("<your-apideck-api-key>"),
+	)
 
 	ctx := context.Background()
 	res, err := s.Ats.Applicants.Add(ctx, operations.ApplicantsAddRequest{
@@ -62,7 +60,7 @@ func main() {
 		},
 		XApideckAppID:      "<value>",
 		XApideckConsumerID: "<value>",
-	}, operationSecurity)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
